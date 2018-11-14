@@ -15,7 +15,7 @@ module.exports = {
     },
   output: {
     path: BUILD_DIR,
-    filename: '[name].js'
+    filename: '[name].[chunkhash].js'
     },
   module: {
     rules: [
@@ -45,13 +45,16 @@ module.exports = {
           chunks: 'all'
         }
       }
+    },
+    runtimeChunk: {
+      name: "manifest",
     }
   },
   plugins: [
     new HtmlWebpackPlugin(
       {
         template: './public/index.html',
-        hash: true,
+        hash: false,
         inject: true,
         filename: 'index.html'
       }
