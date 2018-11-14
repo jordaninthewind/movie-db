@@ -1,0 +1,47 @@
+{
+  "name": "react-app-mentoring-program",
+  "version": "1.0.0",
+  "description": "React.js Application for Mentoring Program Building Movie Presentation Site that Draws Data from external API",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "webpack --mode development",
+    "build": "webpack --mode production",
+    "start": "webpack-dev-server --open --mode development"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jordaninthewind/React-App-Mentoring-Program.git"
+  },
+  "keywords": [
+    "react.js",
+    "movies"
+  ],
+  "author": "Jordan Kline",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/jordaninthewind/React-App-Mentoring-Program/issues"
+  },
+  "homepage": "https://github.com/jordaninthewind/React-App-Mentoring-Program#readme",
+  "dependencies": {
+    "react": "^16.6.1",
+    "react-dom": "^16.6.1",
+    "react-router": "^4.3.1",
+    "redux": "^4.0.1",
+    "redux-form": "^7.4.2"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.1.5",
+    "@babel/preset-env": "^7.1.5",
+    "@babel/preset-react": "^7.0.0",
+    "babel-loader": "^8.0.4",
+    "css-loader": "^1.0.1",
+    "extract-text-webpack-plugin": "^4.0.0-beta.0",
+    "html-webpack-plugin": "^3.2.0",
+    "jest": "^23.6.0",
+    "style-loader": "^0.23.1",
+    "webpack": "^4.25.1",
+    "webpack-cli": "^3.1.2",
+    "webpack-dev-server": "^3.1.10"
+  }
+}
