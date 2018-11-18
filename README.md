@@ -42,3 +42,16 @@ You should only layout these pages using JSX. They will be used in future tasks.
 
 Try to use all of the React composition power when performing the task: decompose components into small reusable parts.
 
+Task 3: Create Routing for your Application
+
+Link app states between each other with React Router
+
+By default, a user lands on a new page with empty results state('0').
+
+When the user performs a new search, you should redirect them to: './search/Search%20Query'
+
+When the user lands on the page with this URL, you should perform the search andd isplay results.
+
+When the user clicks on a film item, redirect him to: './film/Name%20Of%20Film'
+
+On switching the search/sorting type, you should not change routes.

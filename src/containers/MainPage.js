@@ -1,11 +1,12 @@
 import React, { Component } from 'react';
-import Item from '../components/Item';
+import SearchResults from './Search';
+
 class MainPage extends Component {
     render() {
         return (
             <div>
                 <h1>MainPage Component</h1>
-                <Item />
+                <SearchResults />
             </div>)
 
     }

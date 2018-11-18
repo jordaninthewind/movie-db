@@ -1,8 +1,8 @@
 body {
-    background-color: rgba(255,70,250,1);
-    text-align: center;
+    background-color: white;
+    /* text-align: center; */
 }
 
-div {
-    font-size: 2em;
+li {
+    list-style-type: none;
 }
