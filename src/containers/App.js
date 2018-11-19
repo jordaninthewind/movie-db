@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import MainPage from './MainPage';
 import Item from '../components/Item'
-import { BrowserRouter as Router, Link, Route } from 'react-router-dom';
+import SearchPage from "./SearchPage";
+import { BrowserRouter as Router, Link, Route, Switch } from 'react-router-dom';
 
 class App extends Component {
     render() {
@@ -9,16 +10,17 @@ class App extends Component {
             <Router>
                 <div>
                     <ul>
-                        <li>
-                            <Link to="/">Main Component</Link>
-                        </li>
+                        <li><Link to="/">Main Component</Link></li>
                         <br />
-                        <li>
-                            <Link to="/item">Item</Link>
-                        </li>
+                        <li><Link to="/search">Search Page</Link></li>
+                        <br />
+                        <li><Link to="/item">Item Component</Link></li>
                     </ul>
-                    <Route path="/" exact component={MainPage} />
-                    <Route path="/item" component={Item} />
+                    <Switch>
+                        <Route exact path="/" component={MainPage} />
+                        <Route exact path="/search" component={SearchPage} />
+                        <Route exact path="/item" component={Item} />
+                    </Switch>
                 </div>
             </Router>
         )
