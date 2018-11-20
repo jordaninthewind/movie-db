@@ -5,7 +5,6 @@ const HtmlWebpackPlugin = require('html-webpack-plugin')
 const ExtractTextPlugin = require('extract-text-webpack-plugin')
 const CleanWebpackPlugin = require('clean-webpack-plugin')
 
-// const VENDOR_LIBS = ['react', 'react-dom', 'react-router', 'react-router-dom']
 const BUILD_DIR = path.join(__dirname, 'dist')
 const APP_DIR = path.join(__dirname, 'src')
 
