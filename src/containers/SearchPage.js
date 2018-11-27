@@ -2,7 +2,7 @@ import React from 'react';
 import SearchBar from '../components/SearchBar';
 import SearchResults from './SearchResults';
 
-const SearchPage = (props) => {
+const SearchPage = props => {
     return (
         <div>
             <SearchBar 
