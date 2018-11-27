@@ -8,7 +8,14 @@ class AppRouter extends Component {
     render() {
         return (
             <Switch>
-                <Route exact path="/" component={SearchPage} />
+                <Route 
+                    exact path="/" 
+                    render={ props => <SearchPage 
+                                        text={this.props.text}
+                                        handleInput={this.props.handleInput}
+                                        /> 
+                            } 
+                  />
                 <Route exact path="/search/:query" component={SearchPage} />
                 <Route exact path="/film/:title" component={ShowPage} />
                 <Route component={Lost} />

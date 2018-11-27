@@ -1,16 +1,17 @@
-import React, { Component } from 'react';
+import React from 'react';
 import SearchBar from '../components/SearchBar';
 import SearchResults from './SearchResults';
 
-class SearchPage extends Component {
-    render() {
-        return (
-            <div>
-                <SearchBar />
-                <SearchResults />
-            </div>
-        )
-    }
+const SearchPage = (props) => {
+    return (
+        <div>
+            <SearchBar 
+                handleInput={props.handleInput}  
+              />
+            <h1>{props.text}</h1>
+            <SearchResults />
+        </div>
+    )
 }
 
 export default SearchPage;
