@@ -1,12 +1,15 @@
 import React, { Component } from 'react';
+import SearchBar from '../components/SearchBar';
+import SearchResults from './SearchResults';
 
 class SearchPage extends Component {
     render() {
         return (
             <div>
-                <h1>I'm the Main Page where you search</h1>
-            </div>)
-
+                <SearchBar />
+                <SearchResults />
+            </div>
+        )
     }
 }
 

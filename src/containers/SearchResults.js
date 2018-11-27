@@ -1,11 +1,13 @@
-import React, { Component } from 'react'
+import React, { Component } from 'react';
 
 export default class SearchResults extends Component {
   render() {
+    let query = window.location.pathname.split('/')[1];
+
     return (
-      <React.Fragment>
-        <h1>I'm the Search Page.</h1>
-      </React.Fragment>
+      <div>
+        <h1>Search Results Query: {query}</h1>
+      </div>
     )
   }
 }
