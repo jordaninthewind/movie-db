@@ -1,11 +1,13 @@
-import React, { Component } from 'react'
+import React, { Component } from 'react';
 
-export default class SearchPage extends Component {
-  render() {
-    return (
-      <React.Fragment>
-        <h1>I'm the Search Page.</h1>
-      </React.Fragment>
-    )
-  }
+class SearchPage extends Component {
+    render() {
+        return (
+            <div>
+                <h1>I'm the Main Page where you search</h1>
+            </div>)
+
+    }
 }
+
+export default SearchPage;

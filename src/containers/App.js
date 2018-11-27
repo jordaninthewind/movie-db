@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
-import MainPage from './MainPage';
 import NavBar from './NavBar';
 import Footer from '../components/Footer';
+import SearchResults from './SearchResults';
 import AppRouter from './AppRouter';
 import { BrowserRouter as Router } from 'react-router-dom';
 
@@ -12,6 +12,7 @@ class App extends Component {
                 <div>
                     <NavBar />
                     <AppRouter />
+                    <SearchResults />
                     <Footer />
                 </div>
             </Router>

@@ -1,17 +1,16 @@
 import React, { Component } from 'react';
-import MainPage from './MainPage';
-import Item from '../components/Item';
+import SearchPage from './SearchPage';
+import ShowPage from './ShowPage';
 import Lost from '../components/Lost';
-import SearchPage from "./SearchPage";
 import { Route, Switch } from 'react-router-dom';
 
 class AppRouter extends Component {
     render() {
         return (
             <Switch>
-                <Route exact path="/" component={MainPage} />
-                <Route exact path="/search" component={SearchPage} />
-                <Route exact path="/item" component={Item} />
+                <Route exact path="/" component={SearchPage} />
+                <Route exact path="/search/:query" component={SearchPage} />
+                <Route exact path="/film/:title" component={ShowPage} />
                 <Route component={Lost} />
             </Switch>
         )
