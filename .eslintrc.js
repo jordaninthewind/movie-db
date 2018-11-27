@@ -4,7 +4,10 @@ module.exports = {
         "react"
     ],
     "rules": {
-
+        "quotes": ["error", "single"]
     },
-    "extends": ["airbnb-base"]
+    "extends": [
+        "eslint:recommended",
+        "plugin:react/recommended"
+    ]
 };

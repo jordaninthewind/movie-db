@@ -8,7 +8,7 @@ const SearchPage = props => {
             <SearchBar 
                 handleInput={props.handleInput}  
               />
-            <h1>{props.text}</h1>
+            {props.text}
             <SearchResults />
         </div>
     )
