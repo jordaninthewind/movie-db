@@ -1,11 +1,17 @@
-import React, { Component } from 'react'
+import React from 'react';
+import SearchBar from '../components/SearchBar';
+import SearchResults from './SearchResults';
 
-export default class SearchPage extends Component {
-  render() {
+const SearchPage = props => {
     return (
-      <React.Fragment>
-        <h1>I'm the Search Page.</h1>
-      </React.Fragment>
+        <div>
+            <SearchBar 
+                handleInput={props.handleInput}  
+              />
+            {props.text}
+            <SearchResults />
+        </div>
     )
-  }
 }
+
+export default SearchPage;
