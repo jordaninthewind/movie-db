@@ -5,7 +5,8 @@ const SearchBar = props => {
         <form onSubmit={props.handleSubmit}>
             <input type="text" 
                 onChange={props.handleInput} 
-                placeholder="Type your search here"/>
+                placeholder="Type your search query here"
+              />
             <button type="submit">Search</button>
         </form>
     )

@@ -22,7 +22,13 @@ class App extends Component {
 
     handleSubmit = (e) => {
         e.preventDefault();
-        console.log(this.state.textInput);
+        fetch('https://api.themoviedb.org/3/search/movie?api_key=538bc79feec5b4a97260aafb12ea1f74&language=en-US&query=Maze&include_adult=false')
+            .then(res => res.json())
+            .then(json => {
+                this.setState({
+                    movies: json.results,
+                })
+            })
     }
 
     render() {
@@ -32,6 +38,7 @@ class App extends Component {
                 <NavBar />
                 <AppRouter
                     text={this.state.textInput}
+                    movies={this.state.movies}
                     handleInput={this.handleInput}
                     handleSubmit={this.handleSubmit}
                     />

@@ -9,8 +9,9 @@ const AppRouter = props => {
         <Switch>
             <Route 
                 exact path='/'
-                render={ () => <SearchPage 
+                render={ () => <SearchPage
                                     text={props.text}
+                                    movies={props.movies}
                                     handleInput={props.handleInput}
                                     handleSubmit={props.handleSubmit}
                                   /> 

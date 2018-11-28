@@ -10,7 +10,9 @@ const SearchPage = props => {
                 handleSubmit={props.handleSubmit}
               />
             {props.text}
-            <SearchResults />
+            <SearchResults 
+                movies={props.movies}
+              />
         </div>
     )
 }
