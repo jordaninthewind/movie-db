@@ -2,7 +2,7 @@ import React from 'react'
 
 const SearchBar = props => {
     return (
-        <form>
+        <form onSubmit={props.handleSubmit}>
             <input type="text" 
                 onChange={props.handleInput} 
                 placeholder="Type your search here"/>

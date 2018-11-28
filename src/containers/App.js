@@ -20,6 +20,11 @@ class App extends Component {
         })
     }
 
+    handleSubmit = (e) => {
+        e.preventDefault();
+        console.log(this.state.textInput);
+    }
+
     render() {
         return (
             <Router>
@@ -28,6 +33,7 @@ class App extends Component {
                 <AppRouter
                     text={this.state.textInput}
                     handleInput={this.handleInput}
+                    handleSubmit={this.handleSubmit}
                     />
                 <Footer />
                 </>

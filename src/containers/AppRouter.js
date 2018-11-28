@@ -12,6 +12,7 @@ const AppRouter = props => {
                 render={ () => <SearchPage 
                                     text={props.text}
                                     handleInput={props.handleInput}
+                                    handleSubmit={props.handleSubmit}
                                   /> 
                         } 
                 />
