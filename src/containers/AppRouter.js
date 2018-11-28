@@ -17,7 +17,16 @@ const AppRouter = props => {
                                   /> 
                         } 
                 />
-            <Route exact path='/search/:query' component={SearchPage} />
+            <Route 
+                exact path='/search/:query' 
+                render={ () => <SearchPage
+                                    text={props.text}
+                                    movies={props.movies}
+                                    handleInput={props.handleInput}
+                                    handleSubmit={props.handleSubmit}
+                                  />
+                        }
+                />
             <Route exact path='/film/:title' component={ShowPage} />
             <Route component={Lost} />
         </Switch>

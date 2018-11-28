@@ -4,9 +4,9 @@ const SearchResults = props => {
   return (
     <div>
     { props.movies.length > 0 &&
-      <ul>
-        { props.movies.map(movie => <li>{movie.title}</li>) }
-      </ul>
+      <div>
+        { props.movies.map(movie => <div>{movie.title}</div>) }
+      </div>
     }
     </div>
   )
