@@ -20,19 +20,19 @@ class App extends Component {
         })
     }
 
-    slugifyQuery() {
-        return this.state.textInput.split(" ").join("%20");
+    slugifyQuery(queryPhrase) {
+        return queryPhrase.split(" ").join("%20");
     }
 
     handleSubmit = (e) => {
         e.preventDefault();
-        fetch(`${process.env.BASE_URL}?api_key=${process.env.API_KEY}&language=en-US&query=${this.slugifyQuery()}&include_adult=false`)
+        fetch(`${process.env.BASE_URL}?api_key=${process.env.API_KEY}&language=en-US&query=${this.slugifyQuery(this.state.textInput)}&include_adult=false`)
           .then(res => res.json())
           .then(json => {
             this.setState({
-                movies: json.results,
+              movies: json.results,
             })
-          })
+        })
     }
 
     render() {

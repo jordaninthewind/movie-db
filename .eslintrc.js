@@ -4,10 +4,10 @@ module.exports = {
         "react"
     ],
     "rules": {
-        "quotes": ["error", "single"]
+        // "quotes": ["error", "single"]
     },
     "extends": [
-        "eslint:recommended",
-        "plugin:react/recommended"
+        // "eslint:recommended",
+        // "plugin:react/recommended"
     ]
 };
