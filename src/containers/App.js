@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import Footer from '../components/Footer';
+import Footer from '../components/Footer/Footer';
 import AppRouter from './AppRouter';
 import { BrowserRouter as Router } from 'react-router-dom';
 

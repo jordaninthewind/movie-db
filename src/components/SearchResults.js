@@ -3,12 +3,12 @@ import MovieTile from '../components/MovieTile';
 
 const SearchResults = props => {
   return (
-    <div>
-    { props.movies.length > 0 &&
-      <div>
-        { props.movies.map(movie => <MovieTile movie={movie} />) }
-      </div>
-    }
+    <div id="searchResults">
+      { props.movies.length > 0 &&
+        <div>
+          { props.movies.map(movie => <MovieTile movie={movie} />) }
+        </div>
+      }
     </div>
   )
 }
