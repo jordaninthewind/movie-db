@@ -14,7 +14,8 @@ const AppRouter = props => {
                                     movies={props.movies}
                                     handleInput={props.handleInput}
                                     handleSubmit={props.handleSubmit}
-                                  /> 
+                                    meta={props.meta}
+                                  />
                         } 
                 />
             <Route 
@@ -24,6 +25,7 @@ const AppRouter = props => {
                                     movies={props.movies}
                                     handleInput={props.handleInput}
                                     handleSubmit={props.handleSubmit}
+                                    meta={props.meta}
                                   />
                         }
                 />

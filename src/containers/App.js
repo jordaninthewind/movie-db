@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import NavBar from '../components/NavBar/NavBar';
 import Footer from '../components/Footer';
 import AppRouter from './AppRouter';
 import { BrowserRouter as Router } from 'react-router-dom';
@@ -10,7 +9,8 @@ class App extends Component {
 
         this.state = {
             textInput: '',
-            movies: []
+            movies: [],
+            meta: [],
         }
     }
 
@@ -28,9 +28,15 @@ class App extends Component {
         e.preventDefault();
         fetch(`${process.env.BASE_URL}?api_key=${process.env.API_KEY}&language=en-US&query=${this.slugifyQuery(this.state.textInput)}&include_adult=false`)
           .then(res => res.json())
+        //   .then(json => console.log(json))
           .then(json => {
             this.setState({
               movies: json.results,
+              meta: {
+                  total_results: json.total_results,
+                  total_pages: json.total_pages,
+                  current_page: json.current_page
+              }
             })
         })
     }
@@ -39,12 +45,12 @@ class App extends Component {
         return (
             <Router>
                 <>
-                <NavBar />
                 <AppRouter
                     text={this.state.textInput}
                     movies={this.state.movies}
                     handleInput={this.handleInput}
                     handleSubmit={this.handleSubmit}
+                    meta={this.state.meta}
                   />
                 <Footer />
                 </>
