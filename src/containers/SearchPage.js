@@ -1,6 +1,6 @@
 import React from 'react';
 import SearchBar from '../components/SearchBar';
-import SearchResults from './SearchResults';
+import SearchResults from '../components/SearchResults';
 
 const SearchPage = props => {
     return (

@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import SearchResults from './SearchResults';
+import SearchResults from '../components/SearchResults';
 
 export default class ShowPage extends Component {
   render() {
