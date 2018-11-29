@@ -20,19 +20,19 @@ class App extends Component {
         })
     }
 
-    slugifyQuery(queryPhrase) {
-        return queryPhrase.split(" ").join("%20");
+    slugifyQuery() {
+        return this.state.textInput.split(" ").join("%20");
     }
 
     handleSubmit = (e) => {
         e.preventDefault();
-        fetch(`https://api.themoviedb.org/3/search/movie?api_key=538bc79feec5b4a97260aafb12ea1f74&language=en-US&query=${this.slugifyQuery(this.state.textInput)}&include_adult=false`)
-            .then(res => res.json())
-            .then(json => {
-                this.setState({
-                    movies: json.results,
-                })
+        fetch(`${process.env.BASE_URL}?api_key=${process.env.API_KEY}&language=en-US&query=${this.slugifyQuery()}&include_adult=false`)
+          .then(res => res.json())
+          .then(json => {
+            this.setState({
+                movies: json.results,
             })
+          })
     }
 
     render() {

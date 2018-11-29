@@ -1,5 +1,6 @@
-const webpack = require('webpack')
-const path = require('path')
+const webpack = require('webpack');
+const path = require('path');
+const Dotenv = require('dotenv-webpack');
 
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const ExtractTextPlugin = require('extract-text-webpack-plugin')
@@ -48,6 +49,7 @@ module.exports = {
       }
     ),
     new ExtractTextPlugin({filename: './src/style.css'}),
-    new CleanWebpackPlugin(['dist'])
+    new CleanWebpackPlugin(['dist']),
+    new Dotenv()
   ]
 }
