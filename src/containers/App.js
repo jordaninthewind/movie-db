@@ -10,7 +10,7 @@ class App extends Component {
         this.state = {
             textInput: '',
             movies: [],
-            meta: [],
+            meta: {},
         }
     }
 
