@@ -1,5 +1,4 @@
 import React from 'react';
-// import SearchResults from './SearchResults';
 
 class SearchPage extends React.Component {
     constructor(props) {
@@ -26,7 +25,6 @@ class SearchPage extends React.Component {
                     placeholder="Type your search query here"
                 />
                 <button onClick={() => { this.props.history.push(`/search/${this.state.text.split(" ").join("%20") }`)}} >Search</button>
-                {/* <SearchResults {...this.props}/> */}
             </div>
         )
     }

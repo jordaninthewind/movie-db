@@ -1,13 +1,20 @@
 import React, { Component } from 'react';
 import Footer from '../components/Footer/Footer';
-import AppRouter from './AppRouter';
 import SearchResults from './SearchResults';
-import { Route } from 'react-router-dom';
+import SearchPage from './SearchPage';
+import ShowPage from './ShowPage';
+import Lost from '../components/Lost';
+import { Route, Switch, Redirect } from 'react-router-dom';
 
 const App = () => {
     return (
         <>
-        <AppRouter />
+        <Switch>
+            <Route exact path='/' render={() => <Redirect to='/search' /> } />
+            <Route path='/search/:name?' component={SearchPage} />
+            <Route path='/film/:title' component={ShowPage} />
+            <Route component={Lost} />
+        </Switch>
         <Route path='/search/:name' component={SearchResults} />
         <Footer />
         </>
