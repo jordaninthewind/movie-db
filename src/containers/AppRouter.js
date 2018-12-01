@@ -7,9 +7,9 @@ import { Route, Switch, Redirect } from 'react-router-dom';
 const AppRouter = props => {
     return (
         <Switch>
-            <Route exact path='/' render={() => <Redirect to='/search' /> } /> {/*To redirect when hits root*/}
-            <Route exact path='/search/:name?' component={SearchPage} />
-            <Route exact path='/film/:title' component={ShowPage} />
+            <Route exact path='/' render={() => <Redirect to='/search' /> } />
+            <Route path='/search/:name?' component={SearchPage} />
+            <Route path='/film/:title' component={ShowPage} />
             <Route component={Lost} />
         </Switch>
     )

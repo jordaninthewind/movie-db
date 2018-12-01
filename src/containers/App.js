@@ -1,15 +1,16 @@
 import React, { Component } from 'react';
 import Footer from '../components/Footer/Footer';
 import AppRouter from './AppRouter';
-import SearchResults from '../components/SearchResults';
+import SearchResults from './SearchResults';
+import { Route } from 'react-router-dom';
 
 const App = () => {
     return (
-            <>
-            <AppRouter />
-            <SearchResults />
-            <Footer />
-            </>
+        <>
+        <AppRouter />
+        <Route path='/search/:name' component={SearchResults} />
+        <Footer />
+        </>
     )
 }
 
