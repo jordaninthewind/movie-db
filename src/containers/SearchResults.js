@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import MovieTile from '../components/MovieTile';
+import MovieTile from '../components/MovieTile/MovieTile';
 
 class SearchResults extends Component {
   constructor(props) {
@@ -7,16 +7,16 @@ class SearchResults extends Component {
 
     this.state = {
       movies: [],
-      search: props.match.params.name,
+      search: "",
       loading: false,
     }
   }
-
 
   getMovies = () => {
     this.setState({
       loading: true,
     })
+    
     fetch(`${process.env.BASE_URL}?api_key=${process.env.API_KEY}&language=en-US&query=${this.state.search.split(" ").join("%20")}&include_adult=false`)
       .then(res => res.json())
       .then(json => {
@@ -27,10 +27,21 @@ class SearchResults extends Component {
     })
   }
 
-  componentDidMount() {
-    this.getMovies();
+  updateMovies = () => {
+    this.setState({
+      search: this.props.match.params.name
+    }, () => this.getMovies())
   }
-  
+
+  componentDidMount() {
+    this.updateMovies();
+  }
+
+  componentDidUpdate(prevProps) {
+    if (this.props.match.params.name !== prevProps.match.params.name) {
+      this.updateMovies();
+    }
+  }
 
   render() {
     if ( this.state.movies.length > 0 && !this.state.loading ) {

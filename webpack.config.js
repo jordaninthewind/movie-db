@@ -2,12 +2,12 @@ const webpack = require('webpack');
 const path = require('path');
 const Dotenv = require('dotenv-webpack');
 
-const HtmlWebpackPlugin = require('html-webpack-plugin')
-const ExtractTextPlugin = require('extract-text-webpack-plugin')
-const CleanWebpackPlugin = require('clean-webpack-plugin')
+const HtmlWebpackPlugin = require('html-webpack-plugin');
+const ExtractTextPlugin = require('extract-text-webpack-plugin');
+const CleanWebpackPlugin = require('clean-webpack-plugin');
 
-const BUILD_DIR = path.join(__dirname, 'dist')
-const APP_DIR = path.join(__dirname, 'src')
+const BUILD_DIR = path.join(__dirname, 'dist');
+const APP_DIR = path.join(__dirname, 'src');
 
 module.exports = {
   entry: { 

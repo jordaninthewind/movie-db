@@ -5,7 +5,7 @@ class SearchPage extends React.Component {
         super(props);
 
         this.state = {
-            text: "",
+            text: props.match.params.name,
         }
     }
 
@@ -22,9 +22,12 @@ class SearchPage extends React.Component {
                 <div id="subtitle">FIND YOUR MOVIE</div>
                 <input type="text"
                     onChange={this.handleInput}
+                    value={this.state.text}
                     placeholder="Type your search query here"
                 />
-                <button onClick={() => { this.props.history.push(`/search/${this.state.text.split(" ").join("%20") }`)}} >Search</button>
+                <button 
+                    id="searchButton"
+                    onClick={() => { this.props.history.push(`/search/${this.state.text.split(" ").join("%20") }`)}} >Search</button>
             </div>
         )
     }
