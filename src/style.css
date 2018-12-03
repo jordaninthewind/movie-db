@@ -14,13 +14,3 @@ body {
     flex-direction: row;
     justify-content: space-evenly;
 }
-
-.movieTile {
-    padding: 10px;
-    margin: 10px;
-    border: 2px solid grey;
-}
-
-.movieTile p {
-    font-size: .6em;
-}

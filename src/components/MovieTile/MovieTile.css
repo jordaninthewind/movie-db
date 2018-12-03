@@ -1,0 +1,16 @@
+.movieTile {
+    padding: 20px;
+    margin: 10px;
+    border: 2px solid grey;
+}
+
+.movieTile p {
+    font-size: .8em;
+    width: 10vw;
+    text-align: left;
+    color: #414141;
+}
+
+img {
+    min-width: 200px;
+}
