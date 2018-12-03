@@ -17,7 +17,7 @@ class SearchPage extends React.Component {
 
     render() {
         return (
-            <div className="searchBar">
+            <div id="searchBar">
                 <div id="title">netflixroulette</div>
                 <div id="subtitle">FIND YOUR MOVIE</div>
                 <input type="text"

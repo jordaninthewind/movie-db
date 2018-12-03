@@ -1,14 +1,8 @@
 .movieTile {
+    background-color: white;
     padding: 20px;
-    margin: 10px;
+    margin: 20px 10px 0 10px;
     border: 2px solid grey;
-}
-
-.movieTile p {
-    font-size: .8em;
-    width: 10vw;
-    text-align: left;
-    color: #414141;
 }
 
 img {

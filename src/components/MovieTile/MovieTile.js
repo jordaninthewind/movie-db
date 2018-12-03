@@ -1,4 +1,5 @@
 import React from 'react';
+import MovieInfo from '../MovieInfo/MovieInfo';
 import './MovieTile.css';
 
 const MovieTile = props => {
@@ -11,7 +12,7 @@ const MovieTile = props => {
             height="300px"
             width="200px"
           />
-        <p>{props.movie.title}</p>
+        <MovieInfo movie={props.movie} />
       </div>
     )
 }

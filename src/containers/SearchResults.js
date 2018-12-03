@@ -47,7 +47,7 @@ class SearchResults extends Component {
     if ( this.state.movies.length > 0 && !this.state.loading ) {
       return (
         <div id="searchResults">
-          { this.state.movies.map(movie => <MovieTile movie={movie} />) }
+          { this.state.movies.map(movie => <MovieTile movie={movie} key={movie.id} />) }
         </div>
       )
     } else if ( this.state.loading ){
