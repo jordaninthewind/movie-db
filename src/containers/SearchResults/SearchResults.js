@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-import MovieTile from '../components/MovieTile/MovieTile';
+import MovieTile from '../../components/MovieTile/MovieTile';
+import './SearchResults.css';
 
 class SearchResults extends Component {
   constructor(props) {
@@ -17,7 +18,7 @@ class SearchResults extends Component {
       loading: true,
     })
     
-    fetch(`${process.env.BASE_URL}?api_key=${process.env.API_KEY}&language=en-US&query=${this.state.search.split(" ").join("%20")}&include_adult=false`)
+    fetch(`${process.env.BASE_URL}?api_key=${process.env.API_KEY}&language=en-US&query=${encodeURI(this.state.search)}&include_adult=false`)
       .then(res => res.json())
       .then(json => {
         this.setState({

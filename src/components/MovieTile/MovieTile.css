@@ -5,6 +5,6 @@
     border: 2px solid grey;
 }
 
-img {
+.movieTile img {
     min-width: 200px;
 }

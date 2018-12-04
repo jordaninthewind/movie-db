@@ -1,10 +1,12 @@
 import React, { Component } from 'react';
-import Footer from '../components/Footer/Footer';
-import SearchResults from './SearchResults';
-import SearchPage from './SearchPage';
-import ShowPage from './ShowPage';
-import Lost from '../components/Lost';
 import { Route, Switch, Redirect } from 'react-router-dom';
+
+import SearchResults from './SearchResults/SearchResults';
+import SearchPage from './SearchPage/SearchPage';
+import ShowPage from './ShowPage/ShowPage';
+import Footer from '../components/Footer/Footer';
+import Lost from '../components/Lost';
+
 
 const App = () => {
     return (

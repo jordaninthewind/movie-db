@@ -1,4 +1,5 @@
 import React from 'react';
+import './SearchPage.css';
 
 class SearchPage extends React.Component {
     constructor(props) {
@@ -27,7 +28,7 @@ class SearchPage extends React.Component {
                 />
                 <button 
                     id="searchButton"
-                    onClick={() => { this.props.history.push(`/search/${this.state.text.split(" ").join("%20") }`)}} >Search</button>
+                    onClick={() => { this.props.history.push(`/search/${encodeURI(this.state.text) }`)}} >Search</button>
             </div>
         )
     }

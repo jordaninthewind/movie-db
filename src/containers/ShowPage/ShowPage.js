@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import './ShowPage.css';
 
 export default class ShowPage extends Component {
   constructor(props) {
