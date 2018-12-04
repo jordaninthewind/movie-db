@@ -7,21 +7,3 @@ body {
     background-color: white;
     text-align: center;
 }
-
-#searchResults {
-    display: flex;
-    flex-wrap: wrap;
-    flex-direction: row;
-    justify-content: space-evenly;
-    width: 90vw;
-    margin-left: auto;
-    margin-right: auto;
-    background-color: lightgrey;
-}
-
-#searchBar {
-    height: 200px;
-    background-color: #414141;
-    border-bottom: 2px solid black;
-    color: white;
-}
