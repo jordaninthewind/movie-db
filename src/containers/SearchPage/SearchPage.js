@@ -29,7 +29,7 @@ class SearchPage extends Component {
                 />
                 <button 
                     id="searchButton"
-                    onClick={() => { this.props.history.push(`/search/${encodeURI(this.state.text) }`)}} >SEARCH</button>
+                    onClick={() => { this.props.history.push(`/search/${encodeURI(this.state.text) }`) }} >SEARCH</button>
             </div>
         )
     }

@@ -17,7 +17,7 @@ export default function moviesReducer(state = initialState, action) {
 			return {
 				...state,
 				movies: action.movies.results,
-				currentPage: action.movies.current_page,
+				currentPage: action.movies.page,
 				totalPages: action.movies.total_pages,
 				totalResults: action.movies.total_results,
 				loading: false,
