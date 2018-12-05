@@ -6,8 +6,13 @@ const setLoading = () => {
     return { type: "SET_LOADING", loading: true }
 }
 
-export const getAllMovies = url => dispatch => {
+const setSearchTerm = input => {
+    return { type: "SET_SEARCH_TERM", input }
+}
+
+export const getAllMovies = (url, searchTerm) => dispatch => {
     dispatch(setLoading())
+    dispatch(setSearchTerm(searchTerm))
     
 	fetch(url)
     .then(res => res.json())

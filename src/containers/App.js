@@ -14,7 +14,7 @@ const App = () => {
         <Switch>
             <Route exact path='/' render={() => <Redirect to='/search' /> } />
             <Route path='/search/:name?' component={SearchPage} />
-            <Route path='/film/:title' component={ShowPage} />
+            <Route path='/film/:name' component={ShowPage} />
             <Route component={Lost} />
         </Switch>
         <Route path='/(search|film)/:query?' component={SearchResults} />

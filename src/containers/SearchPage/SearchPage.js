@@ -20,16 +20,16 @@ class SearchPage extends Component {
 
     handleSearch = () => {
         this.props.history.push(`/search/${encodeURI(this.state.text) }`);
-        this.props.getMovies(`${process.env.BASE_URL + encodeURI(this.props.match.params.name)}`);
+        this.props.getMovies(`${process.env.BASE_URL + encodeURI(this.props.match.params.name)}`, this.state.text);
     }
 
     componentDidMount = () => {
-        this.props.getMovies(`${process.env.BASE_URL + encodeURI(this.props.match.params.name)}`);
+        this.props.getMovies(`${process.env.BASE_URL + encodeURI(this.props.match.params.name)}`, this.state.text);
     }
 
     componentDidUpdate(prevProps) {
         if (this.props.match.params.name !== prevProps.match.params.name) {
-            this.props.getMovies(`${process.env.BASE_URL + encodeURI(this.props.match.params.name)}`);
+            this.props.getMovies(`${process.env.BASE_URL + encodeURI(this.props.match.params.name)}`, this.state.text);
         }
     }
 
@@ -62,7 +62,7 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
     return {
-        getMovies: url => {dispatch(getAllMovies(url))}
+        getMovies: (url, input) => {dispatch(getAllMovies(url, input))}
     }
 }
 

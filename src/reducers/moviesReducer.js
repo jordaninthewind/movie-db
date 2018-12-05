@@ -1,4 +1,5 @@
 const initialState = {
+	input: "",
 	movies: [],
 	currentPage: 0,
 	totalPages: 0,
@@ -21,6 +22,11 @@ export default function moviesReducer(state = initialState, action) {
 				totalPages: action.movies.total_pages,
 				totalResults: action.movies.total_results,
 				loading: false,
+			}
+		case "SET_SEARCH_TERM":
+			return {
+				...state,
+				input: action.input,
 			}
 		case "ADD_MOVIES_TO_PAGE": // this will be modified/implemented for pagination
 			return {
