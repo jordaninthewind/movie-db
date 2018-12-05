@@ -17,7 +17,7 @@ const App = () => {
             <Route path='/film/:title' component={ShowPage} />
             <Route component={Lost} />
         </Switch>
-        <Route path='/search/:name' component={SearchResults} />
+        <Route path='/(search|film)/:query?' component={SearchResults} />
         <Footer />
         </>
     )

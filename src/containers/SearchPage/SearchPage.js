@@ -23,6 +23,9 @@ class SearchPage extends Component {
         this.props.getMovies(`${process.env.BASE_URL + encodeURI(this.props.match.params.name)}`);
     }
 
+    componentDidMount = () => {
+        this.props.getMovies(`${process.env.BASE_URL + encodeURI(this.props.match.params.name)}`);
+    }
 
     componentDidUpdate(prevProps) {
         if (this.props.match.params.name !== prevProps.match.params.name) {
