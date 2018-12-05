@@ -1,6 +1,8 @@
 const initialState = {
 	movies: [],
-	response: {},
+	currentPage: 0,
+	totalPages: 0,
+	totalResults: 0,
 	loading: false,
 }
 
@@ -15,7 +17,9 @@ export default function moviesReducer(state = initialState, action) {
 			return {
 				...state,
 				movies: action.movies.results,
-				response: action.movies,
+				currentPage: action.movies.current_page,
+				totalPages: action.movies.total_pages,
+				totalResults: action.movies.total_results,
 				loading: false,
 			}
 		case "ADD_MOVIES_TO_PAGE": // this will be modified/implemented for pagination

@@ -1,6 +1,51 @@
 #searchBar {
-    height: 200px;
+    height: 310px;
     background-color: #414141;
     border-bottom: 2px solid black;
     color: white;
+    background-image: url('../../../public/netflix-background.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+    text-align: left;
+    padding: 2% 10% 0;
+}
+
+#topTitle {
+    font-size: 1.3em;
+    color: #f55263;
+    font-weight: 900;
+}
+
+#subTitle {
+    font-weight: 900;
+    margin: 60px 0 30px 0;
+}
+
+#textInput {
+    width: 97%;
+    height: 50px;
+    padding-left: 3%;
+    border: 0;
+    background-color: black;
+    color: white;
+    font-weight: 50;
+    border-bottom: 2px solid #f55263;
+}
+
+#textInput:focus {
+    outline: none;
+}
+
+#searchButton {
+    position: relative;
+    float: right;
+    color: white;
+    background-color: #f55263;
+    border: 0;
+    font-size: 1em;
+    font-weight: 900;
+    width: 25%;
+    max-width: 200px;
+    height: 15%;
+    margin-top: 2%;
 }
