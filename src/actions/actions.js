@@ -10,6 +10,7 @@ export const getAllMovies = url => dispatch => {
     dispatch(setLoading())
     
 	fetch(url)
-		.then(res => res.json())
-		.then(json => dispatch(setMovies(json)))
+    .then(res => res.json())
+    .then(json => dispatch(setMovies(json)))
+    .catch(res => console.log(res))
 }

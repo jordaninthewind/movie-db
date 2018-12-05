@@ -14,9 +14,7 @@ class SearchResults extends Component {
   }
 
   getMovies = () => {
-    const url = `${process.env.BASE_URL + encodeURI(this.state.search)}&include_adult=false`
-
-    this.props.getAllMovies(url);
+    this.props.getAllMovies(`${process.env.BASE_URL + encodeURI(this.state.search)}`);
   }
 
   updateMovies = () => {
@@ -36,15 +34,15 @@ class SearchResults extends Component {
   }
 
   render() {
+    console.log(this.props.movies)
     console.log(this.props.movies.results)
-    console.log(this.props.loading)
     if ( !this.props.loading && this.props.movies.results ) { 
       return (
         <div id="searchResults">
           { this.props.movies.results.map(movie => <MovieTile movie={movie} key={movie.id} />) }
         </div>
       )
-    } else if ( this.props.loading ){
+    } else if ( !!this.props.loading ){
       return <div>Loading...</div>;
     } else {
       return <div>No Results</div>;

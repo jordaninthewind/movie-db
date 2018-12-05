@@ -3,6 +3,5 @@
     flex-wrap: wrap;
     flex-direction: row;
     justify-content: space-evenly;
-    /* background-color: lightgrey; */
-    margin: 25px 0 75px 0;
+    margin: 70px auto;
 }

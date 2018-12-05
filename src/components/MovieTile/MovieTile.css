@@ -1,6 +1,8 @@
 .movieTile {
     background-color: white;
     border: 2px solid grey;
+    width: 20%;
+    min-width: 200px;
 }
 
 .movieTile img {
