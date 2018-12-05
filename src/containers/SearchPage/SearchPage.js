@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import { getAllMovies } from '../../actions/actions';
 import './SearchPage.css';
 
 class SearchPage extends Component {
@@ -16,6 +18,18 @@ class SearchPage extends Component {
         })
     }
 
+    handleSearch = () => {
+        this.props.history.push(`/search/${encodeURI(this.state.text) }`);
+        this.props.getMovies(`${process.env.BASE_URL + encodeURI(this.props.match.params.name)}`);
+    }
+
+
+    componentDidUpdate(prevProps) {
+        if (this.props.match.params.name !== prevProps.match.params.name) {
+            this.props.getMovies(`${process.env.BASE_URL + encodeURI(this.props.match.params.name)}`);
+        }
+    }
+
     render() {
         return (
             <div id="searchBar">
@@ -29,10 +43,24 @@ class SearchPage extends Component {
                 />
                 <button 
                     id="searchButton"
-                    onClick={() => { this.props.history.push(`/search/${encodeURI(this.state.text) }`) }} >SEARCH</button>
+                    onClick={this.handleSearch}>
+                    SEARCH
+                </button>
             </div>
         )
     }
 }
 
-export default SearchPage;
+const mapStateToProps = state => {
+    return {
+
+    }
+}
+
+const mapDispatchToProps = dispatch => {
+    return {
+        getMovies: url => {dispatch(getAllMovies(url))}
+    }
+}
+
+export default connect(null, mapDispatchToProps)(SearchPage);

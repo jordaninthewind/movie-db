@@ -8,3 +8,9 @@
 #searchResults li {
     list-style-type: none;
 }
+
+#noResults {
+    font-size: 4em;
+    padding: 15%;
+    color: lightgrey;
+}
