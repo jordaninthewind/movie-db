@@ -4,7 +4,7 @@ import './MovieTile.css';
 
 const MovieTile = props => {
     return (
-      <div className="movieTile">
+      <li className="movieTile">
         <img 
             key={props.movie.id}
             src={process.env.PHOTO_URL + props.movie.poster_path}
@@ -12,7 +12,7 @@ const MovieTile = props => {
             width="300px"
           />
         <MovieInfo movie={props.movie} />
-      </div>
+      </li>
     )
 }
 

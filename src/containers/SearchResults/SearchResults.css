@@ -3,5 +3,10 @@
     flex-wrap: wrap;
     flex-direction: row;
     justify-content: space-evenly;
-    margin: 70px auto;
+    /* justify-content: space-between; */
+    margin: 30px 35px 70px 0;
+}
+
+#searchResults li {
+    list-style-type: none;
 }

@@ -1,7 +1,7 @@
-import React from 'react';
+import React, { Component } from 'react';
 import './SearchPage.css';
 
-class SearchPage extends React.Component {
+class SearchPage extends Component {
     constructor(props) {
         super(props);
 
@@ -10,7 +10,7 @@ class SearchPage extends React.Component {
         }
     }
 
-    handleInput = (e) => {
+    handleInput = e => {
         this.setState({
             text: e.target.value,
         })

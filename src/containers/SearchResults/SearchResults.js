@@ -34,15 +34,13 @@ class SearchResults extends Component {
   }
 
   render() {
-    console.log(this.props.movies)
-    console.log(this.props.movies.results)
-    if ( !this.props.loading && this.props.movies.results ) { 
+    if ( !this.props.loading && this.props.movies ) { 
       return (
-        <div id="searchResults">
-          { this.props.movies.results.map(movie => <MovieTile movie={movie} key={movie.id} />) }
-        </div>
+        <ul id="searchResults">
+          { this.props.movies.map(movie => <MovieTile movie={movie} key={movie.id} />) }
+        </ul>
       )
-    } else if ( !!this.props.loading ){
+    } else if ( this.props.loading ){
       return <div>Loading...</div>;
     } else {
       return <div>No Results</div>;
