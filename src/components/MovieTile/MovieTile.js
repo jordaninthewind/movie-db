@@ -9,8 +9,7 @@ const MovieTile = props => {
             key={props.movie.id}
             src={process.env.PHOTO_URL + props.movie.poster_path}
             alt="" 
-            height="300px"
-            width="200px"
+            width="300px"
           />
         <MovieInfo movie={props.movie} />
       </div>
