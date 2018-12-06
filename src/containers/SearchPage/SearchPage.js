@@ -18,18 +18,22 @@ class SearchPage extends Component {
         })
     }
 
-    handleSearch = () => {
-        this.props.history.push(`/search/${encodeURI(this.state.text) }`);
+    movieAction = () => {
         this.props.getMovies(`${process.env.BASE_URL + encodeURI(this.props.match.params.name)}`, this.state.text);
     }
 
+    handleSearch = () => {
+        this.props.history.push(`/search/${encodeURI(this.state.text) }`);
+        this.movieAction();
+    }
+
     componentDidMount = () => {
-        this.props.getMovies(`${process.env.BASE_URL + encodeURI(this.props.match.params.name)}`, this.state.text);
+        this.movieAction();
     }
 
     componentDidUpdate(prevProps) {
         if (this.props.match.params.name !== prevProps.match.params.name) {
-            this.props.getMovies(`${process.env.BASE_URL + encodeURI(this.props.match.params.name)}`, this.state.text);
+            this.movieAction();
         }
     }
 
@@ -51,12 +55,6 @@ class SearchPage extends Component {
                 </button>
             </div>
         )
-    }
-}
-
-const mapStateToProps = state => {
-    return {
-
     }
 }
 

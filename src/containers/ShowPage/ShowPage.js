@@ -9,7 +9,6 @@ class ShowPage extends Component {
     this.state = {
       movie: this.props.match.params.name,
     }
-
   }
 
   componentDidUpdate(prevProps) {
@@ -18,7 +17,7 @@ class ShowPage extends Component {
         movie: this.props.match.params.name,
       })
     }
-}
+  }
 
   render() {
     return (
