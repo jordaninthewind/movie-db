@@ -1,11 +1,18 @@
 import React, { Component } from 'react';
+<<<<<<< HEAD
 import MovieTile from '../../components/MovieTile/MovieTile';
+=======
+import { connect } from 'react-redux';
+import DisplayTiles from '../../components/DisplayTiles/DisplayTiles';
+import ResultsFilter from '../../components/ResultsFilter/ResultsFilter';
+>>>>>>> feature-redux
 import './SearchResults.css';
 
 class SearchResults extends Component {
   constructor(props) {
     super(props);
 
+<<<<<<< HEAD
     this.state = {
       movies: [],
       search: "",
@@ -60,3 +67,37 @@ class SearchResults extends Component {
 }
 
 export default SearchResults;
+=======
+  }
+
+  render() {
+    return (
+      <>
+        <ResultsFilter 
+          total={this.props.total}
+        />
+        <DisplayTiles 
+          movies={this.props.movies} 
+          loading={this.props.loading}
+          input={this.props.input}
+        />
+      </>
+    )
+  }
+}
+
+const mapStateToProps = state => {
+  return {
+    movies: state.moviesReducer.movies,
+    loading: state.moviesReducer.loading,
+    input: state.moviesReducer.input,
+    total: state.moviesReducer.totalResults
+  }
+}
+
+const mapDispatchToProps = dispatch => {
+
+}
+
+export default connect(mapStateToProps, null)(SearchResults);
+>>>>>>> feature-redux

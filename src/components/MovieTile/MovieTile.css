@@ -1,10 +1,10 @@
 .movieTile {
     background-color: white;
-    padding: 20px;
-    margin: 20px 10px 0 10px;
-    border: 2px solid grey;
+    border: 2px solid lightgrey;
+    width: 300px;
+    margin: 2vh 2vw;
 }
 
 .movieTile img {
-    min-width: 200px;
+
 }

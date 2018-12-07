@@ -1,0 +1,10 @@
+#filterToggle {
+    float: right;
+    padding: 0 10% 0 0;
+    width: 25%;
+    text-align: left;
+}
+
+#filterToggle span {
+    padding-left: 5%;
+}
