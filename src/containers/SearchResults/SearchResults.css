@@ -1,0 +1,16 @@
+#searchResults {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-around;
+    margin: 30px 35px 70px 0;
+}
+
+#searchResults li {
+    list-style-type: none;
+}
+
+#noResults {
+    font-size: 4em;
+    padding: 10%;
+    color: lightgrey;
+}
