@@ -7,3 +7,8 @@ body {
     background-color: white;
     text-align: center;
 }
+
+#root {
+    --background-color: #414141;
+    --accent-font-color: #f55263;
+}

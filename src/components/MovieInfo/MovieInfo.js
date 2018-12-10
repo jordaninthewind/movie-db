@@ -3,7 +3,7 @@ import './MovieInfo.css';
 
 const MovieInfo = props => {
     return (
-        <div>
+        <div id="movieInfo">
             <p>{props.movie.title}</p>
         </div>
     )
