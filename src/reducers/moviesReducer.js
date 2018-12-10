@@ -5,6 +5,8 @@ const initialState = {
 	totalPages: 0,
 	totalResults: 0,
 	loading: false,
+	selectedMovieId: null,
+	selectedMovie: {}
 }
 
 export default function moviesReducer(state = initialState, action) {
@@ -32,6 +34,14 @@ export default function moviesReducer(state = initialState, action) {
 			return {
 				...state,
 				movies: state.movies.concat(action.movies.results)
+			}
+		case "ADD_CURRENT_MOVIE_TO_STATE": // this is for show page
+			return {
+				...state
+			}
+		case "REMOVE_CURRENT_MOVIE_FROM_STATE": // this is for removing show page selection
+			return {
+				...state
 			}
 		default:
 			return state;
