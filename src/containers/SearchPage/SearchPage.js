@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import Header from '../../components/Header/Header';
 import { getAllMovies } from '../../actions/actions';
 import './SearchPage.css';
 
@@ -36,7 +37,7 @@ class SearchPage extends Component {
     render() {
         return (
             <div id="searchBar">
-                <div id="topTitle">netflixroulette</div>
+                <Header />
                 <div id="subTitle">FIND YOUR MOVIE</div>
                 <input type="text"
                     id="textInput"

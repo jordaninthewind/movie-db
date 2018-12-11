@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
+import Header from '../../components/Header/Header';
 import './ShowPage.css';
 
-export default class ShowPage extends Component {
+class ShowPage extends Component {
   constructor(props) {
     super(props);
 
@@ -10,8 +11,11 @@ export default class ShowPage extends Component {
   render() {
     return (
       <div>
+        <Header />
         <h1>Definitely the Show Page</h1>
       </div>
     )
   }
 }
+
+export default ShowPage;
