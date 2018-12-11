@@ -12,7 +12,7 @@ const DisplayTiles = props => {
 
             sortedMovies.sort((a, b) => b.release_date - a.release_date)
         } else {
-            sortedMovies.sort((a, b) => a.vote_average - a.vote_average)
+            sortedMovies.sort((a, b) => a.vote_average - b.vote_average)
         }
 
         return (
