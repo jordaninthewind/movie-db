@@ -3,28 +3,43 @@ import MovieTile from '../MovieTile/MovieTile';
 import './DisplayTiles.css';
 
 const DisplayTiles = props => {
-    if ( props.loading === true ) {
-        return <div id="resultsDisplay">Loading...</div>;
-    } else if ( props.movies.length !== 0 ) {
-        const sortedMovies = [].concat(props.movies);
-        if (props.filter) {
-            sortedMovies.forEach(movie => movie.release_date = new Date(movie.release_date))
+  if (props.loading) {
+    return <div>Loading...</div>;
+  } else if (props.movies.length !== 0) {
+    let sortedMovies = [].concat(props.movies);
 
-            sortedMovies.sort((a, b) => b.release_date - a.release_date)
-        } else {
-            sortedMovies.sort((a, b) => a.vote_average - b.vote_average)
-        }
-
-        return (
-            <ul id="searchResults">
-                { sortedMovies.map(movie => <MovieTile movie={movie} key={movie.id} />) }
-            </ul>
-        )
-    } else if ( props.movies.length === 0 && !props.loading) {
-        return <div id="resultsDisplay">No films found</div>;
-    } else {
-        return null
+    if (props.selectedMovie) {
+      sortedMovies = sortedMovies.filter(
+        movie => movie.id !== props.selectedMovie
+      );
     }
-}
+
+    if (props.filter) {
+      sortedMovies.forEach(
+        movie => (movie.release_date = new Date(movie.release_date))
+      );
+
+      sortedMovies.sort((a, b) => b.release_date - a.release_date);
+    } else {
+      sortedMovies.sort((a, b) => b.vote_average - a.vote_average);
+    }
+
+    return (
+      <ul id="searchResults">
+        {sortedMovies.map(movie => (
+          <MovieTile
+            key={movie.id}
+            movie={movie}
+            handleMovieSelect={props.handleMovieSelect}
+          />
+        ))}
+      </ul>
+    );
+  } else if (props.input && props.movies.length === 0 && !props.loading) {
+    return <div id="noResults">No films found</div>;
+  } else {
+    return null;
+  }
+};
 
 export default DisplayTiles;
