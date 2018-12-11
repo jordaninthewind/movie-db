@@ -35,6 +35,11 @@ export default function moviesReducer(state = initialState, action) {
 				...state,
 				movies: state.movies.concat(action.movies.results)
 			}
+		case "SET_SELECTED_MOVIE":
+			return {
+				...state,
+				selectedMovieId: action.selectedMovieId
+			}
 		case "ADD_CURRENT_MOVIE_TO_STATE": // this is for show page
 			return {
 				...state

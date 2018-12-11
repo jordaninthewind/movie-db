@@ -37,7 +37,7 @@ export const getMoreMovies = url => dispatch => {
 }
 
 const setSelectedMovie = id => {
-    return { type: SET_SELECTED_MOVIE, movieId: id }
+    return { type: SET_SELECTED_MOVIE, selectedMovieId: id }
 }
 
 export const handleMovieSelect = id => dispatch => {
