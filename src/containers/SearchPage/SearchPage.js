@@ -19,7 +19,7 @@ class SearchPage extends Component {
     }
 
     movieAction = () => {
-        this.props.getMovies(`${process.env.BASE_URL + encodeURI(this.props.match.params.name)}`, this.state.text);
+        this.props.getMovies(`${process.env.BASE_URL + encodeURI(this.state.text)}`, this.state.text);
     }
 
     handleSearch = () => {
@@ -28,11 +28,7 @@ class SearchPage extends Component {
     }
 
     componentDidMount = () => {
-        this.movieAction();
-    }
-
-    componentDidUpdate(prevProps) {
-        if (this.props.match.params.name !== prevProps.match.params.name) {
+        if ( this.props.match.params.name ) {
             this.movieAction();
         }
     }
