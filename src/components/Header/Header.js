@@ -6,7 +6,7 @@ const Header = props => {
       <div id="topTitle">
         <span>netflixroulette</span>
         { props.name &&
-            <button onClick={() => props.history.push(`/search/${props.name}`)}>SEARCH</button>
+            <button onClick={props.backToSearch}>SEARCH</button>
         }
       </div>
     )

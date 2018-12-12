@@ -3,6 +3,7 @@ const SET_LOADING = "SET_LOADING"
 const SET_SEARCH_TERM = "SET_SEARCH_TERM"
 const ADD_MOVIES_TO_PAGE = "ADD_MOVIES_TO_PAGE"
 const SET_SELECTED_MOVIE = "SET_SELECTED_MOVIE"
+const REMOVE_CURRENT_FILM_ID = "REMOVE_CURRENT_FILM_ID"
 
 const setMovies = movies => {
 	return { type: SET_ALL_MOVIES, movies }
@@ -42,4 +43,12 @@ const setSelectedMovie = id => {
 
 export const handleMovieSelect = id => dispatch => {
     dispatch(setSelectedMovie(id))
+}
+
+const removeCurrentId = () => {
+    return { type: REMOVE_CURRENT_FILM_ID, selectedMovieId: null }
+}
+
+export const removeCurrentFilmId = () => dispatch => {
+    dispatch(removeCurrentId());
 }

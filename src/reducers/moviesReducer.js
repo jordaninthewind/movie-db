@@ -40,11 +40,12 @@ export default function moviesReducer(state = initialState, action) {
 				...state,
 				selectedMovieId: action.selectedMovieId
 			}
-		case "ADD_CURRENT_MOVIE_TO_STATE": // this is for show page
+		case "REMOVE_CURRENT_FILM_ID": // this is for removing show page selection
 			return {
-				...state
+				...state,
+				selectedMovieId: action.selectedMovieId
 			}
-		case "REMOVE_CURRENT_MOVIE_FROM_STATE": // this is for removing show page selection
+		case "ADD_CURRENT_MOVIE_TO_STATE": // this is for show page
 			return {
 				...state
 			}
