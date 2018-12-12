@@ -9,38 +9,39 @@ class SearchResults extends Component {
   constructor(props) {
     super(props);
 
-    this.state ={
-      filter: true,
-    }
+    this.state = {
+      filter: true
+    };
   }
 
   toggleFilter = () => {
     this.setState({
-      filter: !this.state.filter,
-    })
-  }
+      filter: !this.state.filter
+    });
+  };
 
   handleMovieSelect = id => {
     this.props.selectMovie(id);
-  }
+  };
 
   render() {
     return (
       <>
-        <ResultsFilter 
+        <ResultsFilter
           total={this.props.total}
           filter={this.state.filter}
           toggleFilter={this.toggleFilter}
         />
-        <DisplayTiles 
-          movies={this.props.movies} 
+        <DisplayTiles
+          movies={this.props.movies}
           loading={this.props.loading}
           input={this.props.input}
           filter={this.state.filter}
           handleMovieSelect={this.handleMovieSelect}
+          selectedMovieId={this.props.selectedMovieId}
         />
       </>
-    )
+    );
   }
 }
 
@@ -49,14 +50,18 @@ const mapStateToProps = state => {
     movies: state.moviesReducer.movies,
     loading: state.moviesReducer.loading,
     input: state.moviesReducer.input,
-    total: state.moviesReducer.totalResults
-  }
-}
+    total: state.moviesReducer.totalResults,
+    selectedMovieId: state.moviesReducer.selectedMovieId
+  };
+};
 
 const mapDispatchToProps = dispatch => {
   return {
-    selectMovie: id => dispatch(handleMovieSelect(id)),
-  }
-}
+    selectMovie: id => dispatch(handleMovieSelect(id))
+  };
+};
 
-export default connect(mapStateToProps, mapDispatchToProps)(SearchResults);
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(SearchResults);

@@ -8,9 +8,9 @@ const DisplayTiles = props => {
   } else if (props.movies.length !== 0) {
     let sortedMovies = [].concat(props.movies);
 
-    if (props.selectedMovie) {
+    if (props.selectedMovieId) {
       sortedMovies = sortedMovies.filter(
-        movie => movie.id !== props.selectedMovie
+        movie => movie.id !== props.selectedMovieId
       );
     }
 
