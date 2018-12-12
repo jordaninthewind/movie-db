@@ -25,6 +25,24 @@ class SearchResults extends Component {
   };
 
   render() {
+    if (this.props.movies) {
+      return (
+        <>
+          <ResultsFilter
+            total={this.props.total}
+            filter={this.state.filter}
+            toggleFilter={this.toggleFilter}
+          />
+          <DisplayTiles
+              movies={this.props.movies}
+              loading={this.props.loading}
+              input={this.props.input}
+              filter={this.state.filter}
+              handleMovieSelect={this.handleMovieSelect}
+              selectedMovieId={this.props.selectedMovieId}
+            />
+        </>)
+    } else {
     return (
       <>
         <ResultsFilter
@@ -32,16 +50,8 @@ class SearchResults extends Component {
           filter={this.state.filter}
           toggleFilter={this.toggleFilter}
         />
-        <DisplayTiles
-          movies={this.props.movies}
-          loading={this.props.loading}
-          input={this.props.input}
-          filter={this.state.filter}
-          handleMovieSelect={this.handleMovieSelect}
-          selectedMovieId={this.props.selectedMovieId}
-        />
       </>
-    );
+    );}
   }
 }
 
