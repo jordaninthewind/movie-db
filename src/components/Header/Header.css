@@ -1,0 +1,13 @@
+#topTitle span {
+    float: left;
+}
+
+#topTitle button {
+    float: right;
+    background-color: white;
+    width: 10%;
+    height: 5vh;
+    border-radius: 5px;
+    color: var(--accent-font-color);
+    font-weight: bolder;
+}

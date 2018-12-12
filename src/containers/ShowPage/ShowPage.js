@@ -18,7 +18,7 @@ class ShowPage extends Component {
   render() {
     const movie = this.props.movies.filter(movie => movie.id === this.props.id)[0]
     return (
-      <div>
+      <div className="showPage">
         <Header 
           name={this.props.input}
           history={this.props.history} 
