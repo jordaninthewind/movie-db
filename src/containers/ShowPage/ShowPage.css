@@ -1,7 +1,8 @@
 .showPage {
     width: 80%;
     padding: 0 10%;
-    background-image: url('../../../public/netflix-background.png')
+    background-image: url('../../../public/netflix-background.png');
+    color: white;
 }
 
 .showPage div {

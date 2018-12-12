@@ -5,8 +5,8 @@ const Header = props => {
     return (
       <div id="topTitle">
         <span>netflixroulette</span>
-        { props.name &&
-            <button onClick={props.backToSearch}>SEARCH</button>
+        { props.input &&
+            <button onClick={() => props.history.push(`/search/${props.input}`)}>SEARCH</button>
         }
       </div>
     )

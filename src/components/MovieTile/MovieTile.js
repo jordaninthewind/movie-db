@@ -6,7 +6,7 @@ import './MovieTile.css';
 const MovieTile = props => {
   return (
     <li className="movieTile">
-      <Link to={`/film/${encodeURI(props.movie.title)}`}>
+      <Link to={`/film/${encodeURI(props.movie.title)}/${props.movie.id}`}>
         <img
           key={props.movie.id}
           src={process.env.PHOTO_URL + props.movie.poster_path}
