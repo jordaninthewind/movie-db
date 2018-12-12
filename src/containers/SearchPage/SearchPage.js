@@ -37,7 +37,7 @@ class SearchPage extends Component {
     render() {
         return (
             <div id="searchBar">
-                <Header />
+                <Header name={this.props.input} />
                 <div id="subTitle">FIND YOUR MOVIE</div>
                 <input type="text"
                     id="textInput"
@@ -55,10 +55,16 @@ class SearchPage extends Component {
     }
 }
 
+const mapStateToProps = state => {
+    return {
+        input: state.moviesReducer.input
+    }
+}
+
 const mapDispatchToProps = dispatch => {
     return {
         getMovies: (url, input) => {dispatch(getAllMovies(url, input))}
     }
 }
 
-export default connect(null, mapDispatchToProps)(SearchPage);
+export default connect(mapStateToProps, mapDispatchToProps)(SearchPage);
