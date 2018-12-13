@@ -5,8 +5,8 @@
 #topTitle button {
     float: right;
     background-color: white;
-    width: 10%;
-    height: 5vh;
+    width: 150px;
+    height: 50px;
     border-radius: 5px;
     color: var(--accent-font-color);
     font-weight: bolder;

@@ -36,8 +36,8 @@ class ShowPage extends Component {
           />
         <MovieImage movie={this.props.currentMovie} />
         {/* <MovieInfo /> */}
-        <h1>{this.props.currentMovie.title}</h1>
-        <h2>{this.props.currentMovie.runtime}</h2>
+        <div>{this.props.currentMovie.title}</div>
+        <div>{this.props.currentMovie.runtime}</div>
       </div>
     );
   }

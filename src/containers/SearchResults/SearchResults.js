@@ -32,26 +32,30 @@ class SearchResults extends Component {
             total={this.props.total}
             filter={this.state.filter}
             toggleFilter={this.toggleFilter}
+            input={this.props.input}
+            selectedMovieId={this.props.selectedMovieId}
           />
           <DisplayTiles
-              movies={this.props.movies}
-              loading={this.props.loading}
-              input={this.props.input}
-              filter={this.state.filter}
-              handleMovieSelect={this.handleMovieSelect}
-              selectedMovieId={this.props.selectedMovieId}
-            />
-        </>)
+            movies={this.props.movies}
+            loading={this.props.loading}
+            input={this.props.input}
+            filter={this.state.filter}
+            handleMovieSelect={this.handleMovieSelect}
+            selectedMovieId={this.props.selectedMovieId}
+          />
+        </>
+      );
     } else {
-    return (
-      <>
-        <ResultsFilter
-          total={this.props.total}
-          filter={this.state.filter}
-          toggleFilter={this.toggleFilter}
-        />
-      </>
-    );}
+      return (
+        <>
+          <ResultsFilter
+            total={this.props.total}
+            filter={this.state.filter}
+            toggleFilter={this.toggleFilter}
+          />
+        </>
+      );
+    }
   }
 }
 
