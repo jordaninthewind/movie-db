@@ -6,7 +6,7 @@ const DisplayTiles = props => {
   if (props.loading) {
     return <div>Loading...</div>;
   } else if (props.movies.length !== 0) {
-    let sortedMovies = [].concat(props.movies);
+    let sortedMovies = [...props.movies];
 
     if (props.selectedMovieId) {
       sortedMovies = sortedMovies.filter(

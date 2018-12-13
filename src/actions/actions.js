@@ -21,12 +21,12 @@ export const getMoreMovies = url => dispatch => {
     .then(json => dispatch({ type: ADD_MOVIES_TO_PAGE, movies: json }))
 }
 
-export const handleMovieSelect = id => dispatch => {
-    dispatch({ type: SELECTED_MOVIE_ID, selectedMovieId: id })
+export const handleMovieSelect = id => {
+    return { type: SELECTED_MOVIE_ID, selectedMovieId: id }
 }
 
-export const removeCurrentFilmId = () => dispatch => {
-    dispatch({ type: SELECTED_MOVIE_ID, selectedMovieId: null });
+export const removeCurrentFilmId = () => {
+    return { type: SELECTED_MOVIE_ID, selectedMovieId: null };
 }
 
 export const addCurrentMovieToState = url => dispatch => {
@@ -35,6 +35,6 @@ export const addCurrentMovieToState = url => dispatch => {
     .then(json => dispatch({ type: CURRENT_SELECTED_MOVIE, selectedMovie: json }))
 }
 
-export const removeCurrentMovieFromState = () => dispatch =>{
-    dispatch({ type: CURRENT_SELECTED_MOVIE, selectedMovie: {} })
+export const removeCurrentMovieFromState = () => {
+    return { type: CURRENT_SELECTED_MOVIE, selectedMovie: {} }
 }

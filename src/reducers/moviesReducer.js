@@ -30,7 +30,7 @@ export default function moviesReducer(state = initialState, action) {
 				...state,
 				input: action.input,
 			}
-		case "ADD_MOVIES_TO_PAGE": // this will be modified/implemented for pagination
+		case "ADD_MOVIES_TO_PAGE":
 			return {
 				...state,
 				movies: state.movies.concat(action.movies.results)
@@ -40,7 +40,7 @@ export default function moviesReducer(state = initialState, action) {
 				...state,
 				selectedMovieId: action.selectedMovieId
 			}
-		case "CURRENT_SELECTED_MOVIE": // this is for show page
+		case "CURRENT_SELECTED_MOVIE":
 			return {
 				...state,
 				selectedMovie: action.selectedMovie
