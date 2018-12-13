@@ -3,7 +3,7 @@ import './Header.css'
 
 const Header = props => {
     return (
-      <div id="topTitle">
+      <div className="topTitle">
         <span>netflixroulette</span>
         { props.input &&
             <button onClick={() => props.history.push(`/search/${props.input}`)}>SEARCH</button>

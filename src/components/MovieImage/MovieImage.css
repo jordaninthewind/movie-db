@@ -1,5 +1,5 @@
 
-#movieImage img {
+.movieImage img {
     float: left;
-    display: inline-block;
+    margin: 5%;
 }
