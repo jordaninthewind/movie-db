@@ -5,6 +5,8 @@ const initialState = {
 	totalPages: 0,
 	totalResults: 0,
 	loading: false,
+	selectedMovieId: null,
+	selectedMovie: {}
 }
 
 export default function moviesReducer(state = initialState, action) {
@@ -28,10 +30,20 @@ export default function moviesReducer(state = initialState, action) {
 				...state,
 				input: action.input,
 			}
-		case "ADD_MOVIES_TO_PAGE": // this will be modified/implemented for pagination
+		case "ADD_MOVIES_TO_PAGE":
 			return {
 				...state,
-				movies: state.movies.concat(action.movies.results)
+				movies: [...state.movies, action.movies.results]
+			}
+		case "SELECTED_MOVIE_ID":
+			return {
+				...state,
+				selectedMovieId: action.selectedMovieId
+			}
+		case "CURRENT_SELECTED_MOVIE":
+			return {
+				...state,
+				selectedMovie: action.selectedMovie
 			}
 		default:
 			return state;

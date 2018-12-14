@@ -1,6 +1,6 @@
 #footer {
     position: fixed;
-    background-color: #414141;
+    background-color: var(--background-color);
     bottom: 0;
     left: 0;
     width: 100%;
@@ -9,6 +9,6 @@
 }
 
 #footer div {
-    color: #f55263;
+    color: var(--accent-font-color);
     padding: 20px 45px;
 }
