@@ -12,7 +12,6 @@ const MovieTile = props => {
           src={process.env.PHOTO_URL + props.movie.poster_path}
           onClick={() => props.handleMovieSelect(props.movie.id)}
           alt=""
-          width="300px"
         />
       </Link>
       <MovieInfo movie={props.movie} />

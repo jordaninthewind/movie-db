@@ -3,10 +3,9 @@ import './MovieInfo.css';
 
 const MovieInfo = props => {
     return (
-        <div id="movieInfo">
-            <p>{props.movie.title}</p>
-            <p>{new Date(props.movie.release_date).getFullYear()}</p>
-            <p>{props.movie.vote_average}</p>
+        <div className="movieInfo">
+            <span className="tileTitle">{props.movie.title.toUpperCase()}</span>
+            <span className="tileYear">{new Date(props.movie.release_date).getFullYear()}</span>
         </div>
     )
 }
