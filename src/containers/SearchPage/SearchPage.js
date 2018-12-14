@@ -32,7 +32,7 @@ class SearchPage extends Component {
   };
 
   componentDidMount = () => {
-    if (this.props.match.params.name) {
+    if (this.props.match.params.name && !this.props.input) {
       this.movieAction();
     }
   };
@@ -57,6 +57,12 @@ class SearchPage extends Component {
   }
 }
 
+const mapStateToProps = state => {
+  return {
+    input: state.moviesReducer.input
+  }
+}
+
 const mapDispatchToProps = dispatch => {
   return {
     getMovies: (url, input) => {
@@ -66,6 +72,6 @@ const mapDispatchToProps = dispatch => {
 };
 
 export default connect(
-  null,
+  mapStateToProps,
   mapDispatchToProps
 )(SearchPage);
