@@ -7,7 +7,6 @@
     font-size: 2.3em;
     font-weight: bold;
     padding: 5% 0 2% 0;
-    margin: 0;
 }
 
 #rating {
@@ -21,11 +20,11 @@
 }
 
 .showDetails span {
-    margin: 0 2% 0 0;
+    margin-right: 2%;
     font-weight: bolder;
 }
 
 .showDetails p {
-    padding: 20px 0 0 0;
+    padding-top: 20px;
     font-size: 1.1em;
 }

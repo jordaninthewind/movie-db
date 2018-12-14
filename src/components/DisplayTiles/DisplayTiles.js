@@ -4,7 +4,7 @@ import './DisplayTiles.css';
 
 const DisplayTiles = props => {
   if (props.loading) {
-    return <div>Loading...</div>;
+    return <div id="resultsDisplay">Loading...</div>;
   } else if (props.movies.length !== 0) {
     let sortedMovies = [...props.movies];
 
@@ -36,7 +36,7 @@ const DisplayTiles = props => {
       </ul>
     );
   } else if (props.input && props.movies.length === 0 && !props.loading) {
-    return <div id="noResults">No films found</div>;
+    return <div id="resultsDisplay">No films found</div>;
   } else {
     return null;
   }

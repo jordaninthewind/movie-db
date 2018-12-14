@@ -1,10 +1,10 @@
 #filterToggle {
     float: right;
-    padding: 0 10% 0 0;
-    width: 25%;
+    margin-right: 20%;
+    width: 300px;
     text-align: left;
 }
 
 #filterToggle span {
-    padding-left: 5%;
+    padding-left: 15%;
 }
