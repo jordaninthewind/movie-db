@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import Header from '../../components/Header/Header';
-import { getAllMovies } from '../../actions/actions';
+import { getAllMovies, setSearchTerm, setLoading } from '../../actions/actions';
 import './SearchPage.css';
 
 class SearchPage extends Component {
@@ -20,9 +20,10 @@ class SearchPage extends Component {
   };
 
   movieAction = () => {
+    this.props.setSearchTerm(this.state.text);
+    this.props.setLoading();
     this.props.getMovies(
-      `${process.env.BASE_URL + encodeURI(this.state.text)}`,
-      this.state.text
+      `${process.env.BASE_URL + encodeURI(this.state.text)}`
     );
   };
 
@@ -65,8 +66,14 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
   return {
-    getMovies: (url, input) => {
-      dispatch(getAllMovies(url, input));
+    getMovies: url => {
+      dispatch(getAllMovies(url));
+    },
+    setSearchTerm: input => {
+      dispatch(setSearchTerm(input));
+    },
+    setLoading: () => {
+      dispatch(setLoading());
     }
   };
 };

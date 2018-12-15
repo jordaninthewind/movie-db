@@ -5,10 +5,15 @@ const ADD_MOVIES_TO_PAGE = 'ADD_MOVIES_TO_PAGE';
 const SELECTED_MOVIE_ID = 'SELECTED_MOVIE_ID';
 const CURRENT_SELECTED_MOVIE = 'CURRENT_SELECTED_MOVIE';
 
-export const getAllMovies = (url, searchTerm) => dispatch => {
-  dispatch({ type: SET_LOADING, loading: true });
-  dispatch({ type: SET_SEARCH_TERM, input: searchTerm });
+export const setSearchTerm = searchTerm => {
+  return { type: SET_SEARCH_TERM, input: searchTerm };
+}
 
+export const setLoading = () => {
+  return { type: SET_LOADING, loading: true };
+}
+
+export const getAllMovies = url => dispatch => {
   fetch(url)
     .then(res => res.json())
     .then(json => dispatch({ type: SET_ALL_MOVIES, movies: json }))
