@@ -1,9 +1,9 @@
 #filterToggle {
-    float: right;
-    width: 300px;
-    text-align: left;
+  float: right;
+  width: 300px;
+  text-align: left;
 }
 
 #filterToggle span {
-    padding-left: 15%;
+  padding-left: 15%;
 }

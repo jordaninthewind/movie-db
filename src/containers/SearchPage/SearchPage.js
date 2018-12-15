@@ -60,8 +60,8 @@ class SearchPage extends Component {
 const mapStateToProps = state => {
   return {
     input: state.moviesReducer.input
-  }
-}
+  };
+};
 
 const mapDispatchToProps = dispatch => {
   return {
