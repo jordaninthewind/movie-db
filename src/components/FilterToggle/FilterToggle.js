@@ -6,10 +6,10 @@ const FilterToggle = props => {
     <div id="filterToggle">
       <div>
         Sort by{' '}
-        <span className={(props.filter ? 'active' : null)} onClick={() => props.toggleFilter(props.filter)}>
+        <span className={(props.filter ? 'active' : null)} onClick={() => props.toggleFilter()}>
           release date
         </span>
-        <span className={(props.filter ? null : 'active')} onClick={() => props.toggleFilter(props.filter)}>
+        <span className={(props.filter ? null : 'active')} onClick={() => props.toggleFilter()}>
           rating
         </span>
       </div>

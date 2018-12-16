@@ -51,6 +51,11 @@ export default function moviesReducer(state = initialState, action) {
 				...state,
 				filter: action.filter
 			}
+		case "SORT_MOVIES":
+			return {
+				...state,
+				movies: action.movies
+			}
 		default:
 			return state;
 	}

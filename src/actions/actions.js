@@ -5,6 +5,7 @@ const ADD_MOVIES_TO_PAGE = 'ADD_MOVIES_TO_PAGE';
 const SELECTED_MOVIE_ID = 'SELECTED_MOVIE_ID';
 const CURRENT_SELECTED_MOVIE = 'CURRENT_SELECTED_MOVIE';
 const TOGGLE_FILTER = 'TOGGLE_FILTER';
+const SORT_MOVIES = 'SORT_MOVIES';
 
 export const setSearchTerm = searchTerm => {
   return { type: SET_SEARCH_TERM, input: searchTerm };
@@ -49,4 +50,13 @@ export const removeCurrentMovieFromState = () => {
 
 export const toggleFilter = bool => {
   return { type: TOGGLE_FILTER, filter: !bool }
+}
+
+export const sortMovies = (movies, bool) => {
+  if (bool) {
+    movies.forEach(movie => movie.release_date = new Date(movie.release_date))
+    return { type: SORT_MOVIES, movies: movies.sort((a, b) => b.release_date - a.release_date) }
+  } else {
+    return { type: SORT_MOVIES, movies: movies.sort((a, b) => b.vote_average - a.vote_average) }
+  }
 }

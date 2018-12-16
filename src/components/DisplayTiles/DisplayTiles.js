@@ -14,16 +14,6 @@ const DisplayTiles = props => {
       );
     }
 
-    if (props.filter) {
-      sortedMovies.forEach(
-        movie => (movie.release_date = new Date(movie.release_date))
-      );
-
-      sortedMovies.sort((a, b) => b.release_date - a.release_date);
-    } else {
-      sortedMovies.sort((a, b) => b.vote_average - a.vote_average);
-    }
-
     return (
       <ul id="searchResults">
         {sortedMovies.map(movie => (

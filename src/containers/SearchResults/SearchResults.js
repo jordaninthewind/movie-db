@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { handleMovieSelect, toggleFilter } from '../../actions/actions';
+import { handleMovieSelect, toggleFilter, sortMovies } from '../../actions/actions';
 import DisplayTiles from '../../components/DisplayTiles/DisplayTiles';
 import ResultsFilter from '../../components/ResultsFilter/ResultsFilter';
 import './SearchResults.css';
@@ -14,17 +14,22 @@ class SearchResults extends Component {
     this.props.selectMovie(id);
   };
 
+  handleSort = () => {
+    this.props.toggleFilter(this.props.filter);
+    this.props.sortMovies(this.props.movies, this.props.filter);
+  }
+
   render() {
     return (
       <>
         <ResultsFilter
           total={this.props.total}
-          toggleFilter={this.props.toggleFilter}
+          toggleFilter={this.handleSort}
           filter={this.props.filter}
           input={this.props.input}
           selectedMovieId={this.props.selectedMovieId}
         />
-        { this.props.movies.length && 
+        { this.props.movies && 
           <DisplayTiles
             movies={this.props.movies}
             loading={this.props.loading}
@@ -57,6 +62,9 @@ const mapDispatchToProps = dispatch => {
     },
     toggleFilter: bool => {
       dispatch(toggleFilter(bool));
+    },
+    sortMovies: (movies, bool) => {
+      dispatch(sortMovies(movies, bool))
     }
   };
 };
