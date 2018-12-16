@@ -56,8 +56,8 @@ export const toggleFilter = bool => {
 };
 
 export const sortMovies = (movies, bool) => {
-  return { type: SORT_MOVIES, movies: sortAllMovies(movies,bool)}
-}
+  return { type: SORT_MOVIES, movies: sortAllMovies(movies, bool) };
+};
 
 const sortAllMovies = (movies, bool) => {
   if (bool) {

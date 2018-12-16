@@ -4,7 +4,13 @@ import './MovieImage.css';
 const MovieImage = props => {
   return (
     <div className="movieImage">
-      <img src={process.env.PHOTO_URL + props.movie.poster_path} alt="" />
+      <img
+        src={
+          props.movie.poster_path !== null
+            ? process.env.PHOTO_URL + props.movie.poster_path
+            : '../../../public/no-poster.png'
+        }
+      />
     </div>
   );
 };
