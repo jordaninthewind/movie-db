@@ -4,6 +4,10 @@
   text-align: left;
 }
 
+#filterToggle .active {
+  color: var(--accent-font-color);
+}
+
 #filterToggle span {
   padding-left: 15%;
 }

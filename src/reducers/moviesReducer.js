@@ -1,6 +1,7 @@
 const initialState = {
 	input: "",
 	movies: [],
+	filter: true,
 	currentPage: 0,
 	totalPages: 0,
 	totalResults: 0,
@@ -44,6 +45,11 @@ export default function moviesReducer(state = initialState, action) {
 			return {
 				...state,
 				selectedMovie: action.selectedMovie
+			}
+		case "TOGGLE_FILTER":
+			return {
+				...state,
+				filter: action.filter
 			}
 		default:
 			return state;

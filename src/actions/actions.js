@@ -4,6 +4,7 @@ const SET_SEARCH_TERM = 'SET_SEARCH_TERM';
 const ADD_MOVIES_TO_PAGE = 'ADD_MOVIES_TO_PAGE';
 const SELECTED_MOVIE_ID = 'SELECTED_MOVIE_ID';
 const CURRENT_SELECTED_MOVIE = 'CURRENT_SELECTED_MOVIE';
+const TOGGLE_FILTER = 'TOGGLE_FILTER';
 
 export const setSearchTerm = searchTerm => {
   return { type: SET_SEARCH_TERM, input: searchTerm };
@@ -45,3 +46,7 @@ export const addCurrentMovieToState = url => dispatch => {
 export const removeCurrentMovieFromState = () => {
   return { type: CURRENT_SELECTED_MOVIE, selectedMovie: {} };
 };
+
+export const toggleFilter = bool => {
+  return { type: TOGGLE_FILTER, filter: !bool }
+}

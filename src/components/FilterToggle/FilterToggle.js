@@ -2,15 +2,14 @@ import React from 'react';
 import './FilterToggle.css';
 
 const FilterToggle = props => {
-  const style = { color: '#f55263' };
   return (
     <div id="filterToggle">
       <div>
         Sort by{' '}
-        <span style={props.filter ? style : null} onClick={props.toggleFilter}>
+        <span className={(props.filter ? 'active' : null)} onClick={() => props.toggleFilter(props.filter)}>
           release date
         </span>
-        <span style={props.filter ? null : style} onClick={props.toggleFilter}>
+        <span className={(props.filter ? null : 'active')} onClick={() => props.toggleFilter(props.filter)}>
           rating
         </span>
       </div>

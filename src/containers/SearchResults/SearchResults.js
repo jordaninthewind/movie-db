@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { handleMovieSelect } from '../../actions/actions';
+import { handleMovieSelect, toggleFilter } from '../../actions/actions';
 import DisplayTiles from '../../components/DisplayTiles/DisplayTiles';
 import ResultsFilter from '../../components/ResultsFilter/ResultsFilter';
 import './SearchResults.css';
@@ -8,54 +8,34 @@ import './SearchResults.css';
 class SearchResults extends Component {
   constructor(props) {
     super(props);
-
-    this.state = {
-      filter: true
-    };
   }
-
-  toggleFilter = () => {
-    this.setState({
-      filter: !this.state.filter
-    });
-  };
 
   handleMovieSelect = id => {
     this.props.selectMovie(id);
   };
 
   render() {
-    if (this.props.movies) {
-      return (
-        <>
-          <ResultsFilter
-            total={this.props.total}
-            filter={this.state.filter}
-            toggleFilter={this.toggleFilter}
-            input={this.props.input}
-            selectedMovieId={this.props.selectedMovieId}
-          />
+    return (
+      <>
+        <ResultsFilter
+          total={this.props.total}
+          toggleFilter={this.props.toggleFilter}
+          filter={this.props.filter}
+          input={this.props.input}
+          selectedMovieId={this.props.selectedMovieId}
+        />
+        { this.props.movies.length && 
           <DisplayTiles
             movies={this.props.movies}
             loading={this.props.loading}
             input={this.props.input}
-            filter={this.state.filter}
+            filter={this.props.filter}
             handleMovieSelect={this.handleMovieSelect}
             selectedMovieId={this.props.selectedMovieId}
           />
-        </>
-      );
-    } else {
-      return (
-        <>
-          <ResultsFilter
-            total={this.props.total}
-            filter={this.state.filter}
-            toggleFilter={this.toggleFilter}
-          />
-        </>
-      );
-    }
+        }
+      </>
+    );
   }
 }
 
@@ -65,13 +45,19 @@ const mapStateToProps = state => {
     loading: state.moviesReducer.loading,
     input: state.moviesReducer.input,
     total: state.moviesReducer.totalResults,
-    selectedMovieId: state.moviesReducer.selectedMovieId
+    selectedMovieId: state.moviesReducer.selectedMovieId,
+    filter: state.moviesReducer.filter
   };
 };
 
 const mapDispatchToProps = dispatch => {
   return {
-    selectMovie: id => dispatch(handleMovieSelect(id))
+    selectMovie: id => {
+      dispatch(handleMovieSelect(id));
+    },
+    toggleFilter: bool => {
+      dispatch(toggleFilter(bool));
+    }
   };
 };
 
