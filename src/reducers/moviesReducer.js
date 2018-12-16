@@ -1,7 +1,7 @@
 const initialState = {
 	input: "",
 	movies: [],
-	filter: true,
+	filter: false,
 	currentPage: 0,
 	totalPages: 0,
 	totalResults: 0,

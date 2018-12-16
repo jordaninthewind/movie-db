@@ -35,6 +35,7 @@ class SearchResults extends Component {
             loading={this.props.loading}
             input={this.props.input}
             filter={this.props.filter}
+            sortMovies={this.props.sortMovies}
             handleMovieSelect={this.handleMovieSelect}
             selectedMovieId={this.props.selectedMovieId}
           />
