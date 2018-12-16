@@ -28,7 +28,9 @@ export const getAllMovies = url => dispatch => {
 export const getMoreMovies = url => dispatch => {
   fetch(url)
     .then(res => res.json())
-    .then(json => dispatch({ type: ADD_MOVIES_TO_PAGE, movies: json }));
+    .then(json => {
+      dispatch({ type: ADD_MOVIES_TO_PAGE, movies: json });
+    })
 };
 
 export const handleMovieSelect = id => {

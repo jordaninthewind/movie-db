@@ -34,7 +34,8 @@ export default function moviesReducer(state = initialState, action) {
 		case "ADD_MOVIES_TO_PAGE":
 			return {
 				...state,
-				movies: [...state.movies, action.movies.results]
+				movies: [...state.movies].concat(action.movies.results),
+				currentPage: action.movies.page
 			}
 		case "SELECTED_MOVIE_ID":
 			return {

@@ -24,6 +24,7 @@
   },
   "homepage": "https://github.com/jordaninthewind/React-App-Mentoring-Program#readme",
   "dependencies": {
+    "lodash": "^4.17.11",
     "react": "^16.6.1",
     "react-dom": "^16.6.1",
     "react-redux": "^5.1.1",

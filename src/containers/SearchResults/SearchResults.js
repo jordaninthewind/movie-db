@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { handleMovieSelect, toggleFilter, sortMovies } from '../../actions/actions';
+import { throttle } from 'lodash';
+import { handleMovieSelect, toggleFilter, sortMovies, getMoreMovies } from '../../actions/actions';
 import DisplayTiles from '../../components/DisplayTiles/DisplayTiles';
 import ResultsFilter from '../../components/ResultsFilter/ResultsFilter';
 import './SearchResults.css';
@@ -17,6 +18,24 @@ class SearchResults extends Component {
   handleSort = () => {
     this.props.toggleFilter(this.props.filter);
     this.props.sortMovies(this.props.movies, this.props.filter);
+  }
+
+  handleMoreMovies = () => {
+    const url = `${process.env.BASE_URL + this.props.input}&page=${this.props.currentPage + 1}`
+    if (this.props.currentPage < this.props.totalPages) {
+      this.props.getMoreMovies(url);
+    }
+  }
+
+  loadMoreResults = throttle(() => {
+      if ( window.innerHeight + window.scrollY >= document.body.offsetHeight * .99 ) {
+        this.handleMoreMovies();
+        this.props.sortMovies(this.props.movies, this.props.filter)
+      }
+  }, 500)
+
+  componentDidMount() {
+    window.addEventListener('scroll', this.loadMoreResults);
   }
 
   render() {
@@ -52,7 +71,9 @@ const mapStateToProps = state => {
     input: state.moviesReducer.input,
     total: state.moviesReducer.totalResults,
     selectedMovieId: state.moviesReducer.selectedMovieId,
-    filter: state.moviesReducer.filter
+    filter: state.moviesReducer.filter,
+    currentPage: state.moviesReducer.currentPage,
+    totalPages: state.moviesReducer.totalPages
   };
 };
 
@@ -66,6 +87,9 @@ const mapDispatchToProps = dispatch => {
     },
     sortMovies: (movies, bool) => {
       dispatch(sortMovies(movies, bool))
+    },
+    getMoreMovies: url => {
+      dispatch(getMoreMovies(url))
     }
   };
 };
