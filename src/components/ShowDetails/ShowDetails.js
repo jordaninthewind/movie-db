@@ -5,8 +5,10 @@ const ShowDetails = props => {
   return (
     <div className="showDetails">
       <div>
-        <a href={`http://www.imdb.com/title/` + props.movie.imdb_id}
-          target="_blank" >
+        <a
+          href={`http://www.imdb.com/title/` + props.movie.imdb_id}
+          target="_blank"
+        >
           {props.movie.title}
         </a>
         <span id="rating">
