@@ -18,36 +18,34 @@ class SearchPage extends Component {
     if (e.key === 'Enter') {
       this.handleSearch()
     }
-  };
+  }
 
   handleInput = e => {
     this.setState({
       text: e.target.value
     })
-  };
+  }
 
   movieAction = () => {
     if (this.state.text !== this.props.input) {
       this.props.setSearchTerm(this.state.text)
       this.props.setLoading()
-      this.props.getMovies(
-        `${process.env.BASE_URL + encodeURI(this.state.text)}`
-      )
+      this.props.getMovies(process.env.BASE_URL + encodeURI(this.state.text))
     }
-  };
+  }
 
   handleSearch = () => {
     if (this.state.text) {
       this.props.history.push(`/search/${encodeURI(this.state.text)}`)
       this.movieAction()
     }
-  };
+  }
 
   componentDidMount = () => {
     if (this.props.match.params.name && !this.props.input) {
       this.movieAction()
     }
-  };
+  }
 
   render() {
     return (
