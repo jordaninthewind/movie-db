@@ -9,9 +9,15 @@ class SearchPage extends Component {
     super(props);
 
     this.state = {
-      text: props.match.params.name
+      text: this.props.match.params.name
     };
   }
+
+  _handleKeyPress = e => {
+    if (e.key === 'Enter') {
+      this.handleSearch();
+    }
+  };
 
   handleInput = e => {
     this.setState({
@@ -20,16 +26,20 @@ class SearchPage extends Component {
   };
 
   movieAction = () => {
-    this.props.setSearchTerm(this.state.text);
-    this.props.setLoading();
-    this.props.getMovies(
-      `${process.env.BASE_URL + encodeURI(this.state.text)}`
-    );
+    if (this.state.text !== this.props.input) {
+      this.props.setSearchTerm(this.state.text);
+      this.props.setLoading();
+      this.props.getMovies(
+        `${process.env.BASE_URL + encodeURI(this.state.text)}`
+      );
+    }
   };
 
   handleSearch = () => {
-    this.props.history.push(`/search/${encodeURI(this.state.text)}`);
-    this.movieAction();
+    if (this.state.text) {
+      this.props.history.push(`/search/${encodeURI(this.state.text)}`);
+      this.movieAction();
+    }
   };
 
   componentDidMount = () => {
@@ -47,6 +57,7 @@ class SearchPage extends Component {
           type="text"
           id="textInput"
           onChange={this.handleInput}
+          onKeyPress={this._handleKeyPress}
           value={this.state.text}
           placeholder="Type your search query here"
         />

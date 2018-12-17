@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { throttle } from 'lodash';
-import { handleMovieSelect, toggleFilter, sortMovies, getMoreMovies } from '../../actions/actions';
+import { handleMovieSelect, toggleFilter, sortAllMovies, getMoreMovies } from '../../actions/actions';
 import DisplayTiles from '../../components/DisplayTiles/DisplayTiles';
 import ResultsFilter from '../../components/ResultsFilter/ResultsFilter';
 import './SearchResults.css';
@@ -17,20 +17,22 @@ class SearchResults extends Component {
 
   handleSort = () => {
     this.props.toggleFilter(this.props.filter);
-    this.props.sortMovies(this.props.movies, this.props.filter);
+    this.props.sortAllMovies();
   }
 
-  handleMoreMovies = () => {
-    const url = `${process.env.BASE_URL + this.props.input}&page=${this.props.currentPage + 1}`
+  makeUrl = () => {
+    return `${process.env.BASE_URL + this.props.input}&page=${this.props.currentPage + 1}`;
+  }
+
+  handleMoreMovies = url => {
     if (this.props.currentPage < this.props.totalPages) {
-      this.props.getMoreMovies(url);
+      this.props.getMoreMovies(this.makeUrl());
     }
   }
 
   loadMoreResults = throttle(() => {
       if ( window.innerHeight + window.scrollY >= document.body.offsetHeight * .99 ) {
         this.handleMoreMovies();
-        this.props.sortMovies(this.props.movies, this.props.filter)
       }
   }, 500)
 
@@ -85,8 +87,8 @@ const mapDispatchToProps = dispatch => {
     toggleFilter: bool => {
       dispatch(toggleFilter(bool));
     },
-    sortMovies: (movies, bool) => {
-      dispatch(sortMovies(movies, bool))
+    sortAllMovies: () => {
+      dispatch(sortAllMovies())
     },
     getMoreMovies: url => {
       dispatch(getMoreMovies(url))
