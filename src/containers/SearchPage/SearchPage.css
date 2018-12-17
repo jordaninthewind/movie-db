@@ -32,10 +32,10 @@
 
 #searchButton {
     float: right;
-    width: 25%;
+    width: 15%;
     min-width: 200px;
     height: 40px;
-    margin-top: 10px;
+    margin-top: 20px;
     font-size: .9em;
     background-color: var(--accent-font-color);
     color: white;
