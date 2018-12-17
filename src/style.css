@@ -1,4 +1,14 @@
+html { 
+    font-size: 18px;
+    font-family: Roboto, sans-serif;
+}
+
 body {
-    background-color: rgba(255,70,250,1);
+    background-color: white;
     text-align: center;
+}
+
+#root {
+    --background-color: #414141;
+    --accent-font-color: #f55263;
 }

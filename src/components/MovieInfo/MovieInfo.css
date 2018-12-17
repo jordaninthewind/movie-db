@@ -1,0 +1,24 @@
+.movieInfo {
+  height: 50px;
+  width: 100%;
+  margin-top: 10px;
+}
+
+.tileTitle {
+  text-align: left;
+  float: left;
+  color: var(--background-color);
+  font-size: 0.8em;
+  width: 70%;
+  font-weight: bold;
+  padding: 2%;
+}
+
+.tileYear {
+  font-size: 0.6em;
+  float: right;
+  padding: 1% 2%;
+  margin: 2%;
+  border: 1px solid grey;
+  border-radius: 10%;
+}

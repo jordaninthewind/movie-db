@@ -1,0 +1,8 @@
+.movieTile {
+  max-width: 300px;
+  margin: 2%;
+}
+
+.movieTile img {
+  max-width: 300px;
+}

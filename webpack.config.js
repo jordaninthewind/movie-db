@@ -1,54 +1,55 @@
 const webpack = require('webpack')
 const path = require('path')
+const Dotenv = require('dotenv-webpack')
 
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const ExtractTextPlugin = require('extract-text-webpack-plugin')
+const CleanWebpackPlugin = require('clean-webpack-plugin')
 
-const VENDOR_LIBS = ['react', 'react-dom', 'react-router-dom']
 const BUILD_DIR = path.join(__dirname, 'dist')
 const APP_DIR = path.join(__dirname, 'src')
 
 module.exports = {
   entry: { 
-      bundle: APP_DIR + '/index.js',
-      vendor: VENDOR_LIBS
-    },
+    bundle: APP_DIR + '/index.js',
+  },
   output: {
     path: BUILD_DIR,
-    filename: '[name].[chunkhash].js'
-    },
+    filename: '[name].js',
+    publicPath: '/'
+  },
+  devServer: {
+    historyApiFallback: true,
+  },
   module: {
-    rules: [
+    rules: [   
       {
         test: /\.jsx?$/,
         exclude: /node_modules/,
-        use: {
-          loader: "babel-loader"
-        }
+        use: ['babel-loader', 'eslint-loader']
       },
       {
         test: /\.css$/,
         use: ExtractTextPlugin.extract(
-        {
-          fallback: 'style-loader',
-          use: 'css-loader'
-        })
+          {
+            fallback: 'style-loader',
+            use: 'css-loader'
+          }
+        )
+      },
+      {
+        test: /\.(gif|png|jpe?g|svg)$/i,
+        use: [
+          'file-loader',
+          {
+            loader: 'image-webpack-loader',
+            options: {
+              disable: true
+            },
+          },
+        ],
       }
     ]
-  },
-  optimization: {
-    splitChunks: {
-      cacheGroups: {
-        vendors: {
-          test: /[\\/]node_modules[\\/]/,          // Possible added regexp (react|react-dom)[\\/]/,
-          name: 'vendor',
-          chunks: 'all'
-        }
-      }
-    },
-    runtimeChunk: {
-      name: "manifest",
-    }
   },
   plugins: [
     new HtmlWebpackPlugin(
@@ -59,6 +60,8 @@ module.exports = {
         filename: 'index.html'
       }
     ),
-    new ExtractTextPlugin({filename: './src/style.css'})
+    new ExtractTextPlugin({filename: './src/style.css'}),
+    new CleanWebpackPlugin(['dist']),
+    new Dotenv()
   ]
 }

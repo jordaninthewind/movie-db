@@ -1,0 +1,12 @@
+#resultsFilter {
+    background-color: #f5f5f5;
+    height: 40px;
+    font-weight: bold;
+    font-size: .9em;
+    color: var(--background-color);
+    padding: 20px 10% 0 10%;
+}
+
+#movieCount {
+    float:left;
+}
