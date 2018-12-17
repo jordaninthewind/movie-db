@@ -57,6 +57,7 @@ class SearchPage extends Component {
         <input
           type="text"
           id="textInput"
+          className="form-control"
           onChange={this.handleInput}
           onKeyPress={this._handleKeyPress}
           value={this.state.text}

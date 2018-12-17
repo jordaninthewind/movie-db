@@ -71,5 +71,4 @@ export default function moviesReducer(state = initialState, action) {
   default:
     return state
   }
-  
 }
