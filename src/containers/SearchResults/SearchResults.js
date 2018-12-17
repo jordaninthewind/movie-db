@@ -1,43 +1,44 @@
-import React, { Component } from 'react';
-import { connect } from 'react-redux';
-import { throttle } from 'lodash';
-import { handleMovieSelect, toggleFilter, sortAllMovies, getMoreMovies } from '../../actions/actions';
-import DisplayTiles from '../../components/DisplayTiles/DisplayTiles';
-import ResultsFilter from '../../components/ResultsFilter/ResultsFilter';
-import './SearchResults.css';
+import React, { Component } from 'react'
+import { connect } from 'react-redux'
+import { PropTypes } from 'prop-types'
+import { throttle } from 'lodash'
+import { handleMovieSelect, toggleFilter, sortAllMovies, getMoreMovies } from '../../actions/actions'
+import DisplayTiles from '../../components/DisplayTiles/DisplayTiles'
+import ResultsFilter from '../../components/ResultsFilter/ResultsFilter'
+import './SearchResults.css'
 
 class SearchResults extends Component {
   constructor(props) {
-    super(props);
+    super(props)
   }
 
   handleMovieSelect = id => {
-    this.props.selectMovie(id);
+    this.props.selectMovie(id)
   };
 
   handleSort = () => {
-    this.props.toggleFilter(this.props.filter);
-    this.props.sortAllMovies();
+    this.props.toggleFilter(this.props.filter)
+    this.props.sortAllMovies()
   }
 
   makeUrl = () => {
-    return `${process.env.BASE_URL + this.props.input}&page=${this.props.currentPage + 1}`;
+    return `${process.env.BASE_URL + this.props.input}&page=${this.props.currentPage + 1}`
   }
 
-  handleMoreMovies = url => {
+  handleMoreMovies = () => {
     if (this.props.currentPage < this.props.totalPages) {
-      this.props.getMoreMovies(this.makeUrl());
+      this.props.getMoreMovies(this.makeUrl())
     }
   }
 
   loadMoreResults = throttle(() => {
-      if ( window.innerHeight + window.scrollY >= document.body.offsetHeight * .99 ) {
-        this.handleMoreMovies();
-      }
+    if ( window.innerHeight + window.scrollY >= document.body.offsetHeight * .99 ) {
+      this.handleMoreMovies()
+    }
   }, 500)
 
   componentDidMount() {
-    window.addEventListener('scroll', this.loadMoreResults);
+    window.addEventListener('scroll', this.loadMoreResults)
   }
 
   render() {
@@ -56,13 +57,12 @@ class SearchResults extends Component {
             loading={this.props.loading}
             input={this.props.input}
             filter={this.props.filter}
-            sortMovies={this.props.sortMovies}
             handleMovieSelect={this.handleMovieSelect}
             selectedMovieId={this.props.selectedMovieId}
           />
         }
       </>
-    );
+    )
   }
 }
 
@@ -76,16 +76,16 @@ const mapStateToProps = state => {
     filter: state.moviesReducer.filter,
     currentPage: state.moviesReducer.currentPage,
     totalPages: state.moviesReducer.totalPages
-  };
-};
+  }
+}
 
 const mapDispatchToProps = dispatch => {
   return {
     selectMovie: id => {
-      dispatch(handleMovieSelect(id));
+      dispatch(handleMovieSelect(id))
     },
     toggleFilter: bool => {
-      dispatch(toggleFilter(bool));
+      dispatch(toggleFilter(bool))
     },
     sortAllMovies: () => {
       dispatch(sortAllMovies())
@@ -93,10 +93,25 @@ const mapDispatchToProps = dispatch => {
     getMoreMovies: url => {
       dispatch(getMoreMovies(url))
     }
-  };
-};
+  }
+}
 
 export default connect(
   mapStateToProps,
   mapDispatchToProps
-)(SearchResults);
+)(SearchResults)
+
+SearchResults.propTypes = {
+  selectMovie: PropTypes.func,
+  toggleFilter: PropTypes.func,
+  filter: PropTypes.bool,
+  sortAllMovies: PropTypes.func,
+  input: PropTypes.string,
+  currentPage: PropTypes.number,
+  totalPages: PropTypes.number,
+  movies: PropTypes.array,
+  selectedMovieId: PropTypes.number,
+  loading: PropTypes.bool,
+  getMoreMovies: PropTypes.func,
+  total: PropTypes.number
+}

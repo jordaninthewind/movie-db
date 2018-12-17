@@ -1,24 +1,25 @@
-import React, { Component } from 'react';
-import { connect } from 'react-redux';
+import React, { Component } from 'react'
+import { connect } from 'react-redux'
+import { PropTypes } from 'prop-types' 
 import {
   removeCurrentFilmId,
   addCurrentMovieToState,
   removeCurrentMovieFromState
-} from '../../actions/actions';
-import MovieImage from '../../components/MovieImage/MovieImage';
-import Header from '../../components/Header/Header';
-import ShowDetails from '../../components/ShowDetails/ShowDetails';
-import './ShowPage.css';
+} from '../../actions/actions'
+import MovieImage from '../../components/MovieImage/MovieImage'
+import Header from '../../components/Header/Header'
+import ShowDetails from '../../components/ShowDetails/ShowDetails'
+import './ShowPage.css'
 
 class ShowPage extends Component {
   constructor(props) {
-    super(props);
+    super(props)
   }
 
   componentDidMount = () => {
     const url =
-      process.env.MOVIE_URL + this.props.match.params.id + process.env.API_KEY;
-    this.props.addCurrentMovieToState(url);
+      process.env.MOVIE_URL + this.props.match.params.id + process.env.API_KEY
+    this.props.addCurrentMovieToState(url)
   };
 
   componentDidUpdate = prevProps => {
@@ -26,14 +27,14 @@ class ShowPage extends Component {
       const url =
         process.env.MOVIE_URL +
         this.props.match.params.id +
-        process.env.API_KEY;
-      this.props.addCurrentMovieToState(url);
+        process.env.API_KEY
+      this.props.addCurrentMovieToState(url)
     }
   };
 
   componentWillUnmount = () => {
-    this.props.removeCurrentFilmId();
-    this.props.removeCurrentMovieFromState();
+    this.props.removeCurrentFilmId()
+    this.props.removeCurrentMovieFromState()
   };
 
   render() {
@@ -45,7 +46,7 @@ class ShowPage extends Component {
           <ShowDetails movie={this.props.currentMovie} />
         </div>
       </div>
-    );
+    )
   }
 }
 
@@ -55,18 +56,28 @@ const mapStateToProps = state => {
     movies: state.moviesReducer.movies,
     id: state.moviesReducer.selectedMovieId,
     currentMovie: state.moviesReducer.selectedMovie
-  };
-};
+  }
+}
 
 const mapDispatchToProps = dispatch => {
   return {
     removeCurrentFilmId: () => dispatch(removeCurrentFilmId()),
     addCurrentMovieToState: url => dispatch(addCurrentMovieToState(url)),
     removeCurrentMovieFromState: () => dispatch(removeCurrentMovieFromState())
-  };
-};
+  }
+}
 
 export default connect(
   mapStateToProps,
   mapDispatchToProps
-)(ShowPage);
+)(ShowPage)
+
+ShowPage.propTypes = {
+  match: PropTypes.object,
+  addCurrentMovieToState: PropTypes.func,
+  removeCurrentFilmId: PropTypes.func,
+  removeCurrentMovieFromState: PropTypes.func,
+  history: PropTypes.object,
+  currentMovie: PropTypes.object,
+  input: PropTypes.string
+}

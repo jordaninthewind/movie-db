@@ -1,17 +1,17 @@
-import React from 'react';
-import MovieTile from '../MovieTile/MovieTile';
-import './DisplayTiles.css';
+import React from 'react'
+import MovieTile from '../MovieTile/MovieTile'
+import './DisplayTiles.css'
 
 const DisplayTiles = props => {
   if (props.loading) {
-    return <div id="resultsDisplay">Loading...</div>;
+    return <div id="resultsDisplay">Loading...</div>
   } else if (props.movies.length !== 0) {
-    let sortedMovies = [...props.movies];
+    let sortedMovies = [...props.movies]
 
     if (props.selectedMovieId) {
       sortedMovies = sortedMovies.filter(
         movie => movie.id !== props.selectedMovieId
-      );
+      )
     }
 
     return (
@@ -24,12 +24,12 @@ const DisplayTiles = props => {
           />
         ))}
       </ul>
-    );
+    )
   } else if (props.input && props.movies.length === 0 && !props.loading) {
-    return <div id="resultsDisplay">No films found</div>;
+    return <div id="resultsDisplay">No films found</div>
   } else {
-    return null;
+    return null
   }
-};
+}
 
-export default DisplayTiles;
+export default DisplayTiles

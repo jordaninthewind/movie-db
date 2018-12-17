@@ -56,6 +56,7 @@
     "image-webpack-loader": "^4.5.0",
     "jest": "^23.6.0",
     "normalize.css": "^8.0.1",
+    "prop-types": "^15.6.2",
     "react-icons": "^3.2.2",
     "style-loader": "^0.23.1",
     "webpack": "^4.25.1",

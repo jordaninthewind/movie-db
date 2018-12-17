@@ -1,5 +1,6 @@
-import React from 'react';
-import './MovieImage.css';
+import React from 'react'
+import { PropTypes } from 'prop-types'
+import './MovieImage.css'
 
 const MovieImage = props => {
   return (
@@ -12,7 +13,11 @@ const MovieImage = props => {
         }
       />
     </div>
-  );
-};
+  )
+}
 
-export default MovieImage;
+export default MovieImage
+
+MovieImage.propTypes = {
+  movie: PropTypes.object
+}

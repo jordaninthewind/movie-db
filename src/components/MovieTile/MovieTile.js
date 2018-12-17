@@ -1,7 +1,8 @@
-import React from 'react';
-import MovieInfo from '../MovieInfo/MovieInfo';
-import { Link } from 'react-router-dom';
-import './MovieTile.css';
+import React from 'react'
+import { PropTypes } from 'prop-types'
+import MovieInfo from '../MovieInfo/MovieInfo'
+import { Link } from 'react-router-dom'
+import './MovieTile.css'
 
 const MovieTile = props => {
   return (
@@ -20,7 +21,12 @@ const MovieTile = props => {
       </Link>
       <MovieInfo movie={props.movie} />
     </li>
-  );
-};
+  )
+}
 
-export default MovieTile;
+export default MovieTile
+
+MovieTile.propTypes = {
+  movie: PropTypes.object,
+  handleMovieSelect: PropTypes.func
+}

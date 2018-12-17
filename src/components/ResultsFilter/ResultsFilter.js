@@ -1,6 +1,6 @@
-import React from 'react';
-import FilterToggle from '../FilterToggle/FilterToggle';
-import './ResultsFilter.css';
+import React from 'react'
+import FilterToggle from '../FilterToggle/FilterToggle'
+import './ResultsFilter.css'
 
 const ResultsFilter = props => {
   if (props.selectedMovieId) {
@@ -10,7 +10,7 @@ const ResultsFilter = props => {
           Movies for <em>{props.input}</em>
         </div>
       </div>
-    );
+    )
   } else {
     return (
       <div id="resultsFilter">
@@ -24,8 +24,8 @@ const ResultsFilter = props => {
           </>
         )}
       </div>
-    );
+    )
   }
-};
+}
 
-export default ResultsFilter;
+export default ResultsFilter

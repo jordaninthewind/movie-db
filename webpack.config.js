@@ -1,4 +1,3 @@
-const webpack = require('webpack');
 const path = require('path');
 const Dotenv = require('dotenv-webpack');
 
@@ -26,7 +25,7 @@ module.exports = {
       {
         test: /\.jsx?$/,
         exclude: /node_modules/,
-        use: ["babel-loader", "eslint-loader"]
+        use: ['babel-loader', 'eslint-loader']
       },
       {
         test: /\.css$/,

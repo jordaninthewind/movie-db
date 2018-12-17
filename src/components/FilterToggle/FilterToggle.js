@@ -1,5 +1,6 @@
-import React from 'react';
-import './FilterToggle.css';
+import React from 'react'
+import { PropTypes } from 'prop-types'
+import './FilterToggle.css'
 
 const FilterToggle = props => {
   return (
@@ -14,7 +15,12 @@ const FilterToggle = props => {
         </span>
       </div>
     </div>
-  );
-};
+  )
+}
 
-export default FilterToggle;
+export default FilterToggle
+
+FilterToggle.propTypes = {
+  toggleFilter: PropTypes.func,
+  filter: PropTypes.bool
+}

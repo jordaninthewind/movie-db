@@ -1,5 +1,6 @@
-import React from 'react';
-import './Header.css';
+import React from 'react'
+import { PropTypes } from 'prop-types'
+import './Header.css'
 
 const Header = props => {
   return (
@@ -13,7 +14,12 @@ const Header = props => {
         </button>
       )}
     </div>
-  );
-};
+  )
+}
 
-export default Header;
+export default Header
+
+Header.propTypes = {
+  history: PropTypes.object,
+  input: PropTypes.string
+}
