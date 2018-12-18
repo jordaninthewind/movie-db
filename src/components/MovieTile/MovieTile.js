@@ -1,6 +1,5 @@
 import React from 'react'
 import { PropTypes } from 'prop-types'
-import MovieInfo from '../MovieInfo/MovieInfo'
 import { Link } from 'react-router-dom'
 import './MovieTile.css'
 
@@ -16,10 +15,10 @@ const MovieTile = props => {
               : '../../../public/no-poster.png'
           }
           onClick={() => props.handleMovieSelect(props.movie.id)}
-          alt=""
+          alt={`${props.movie.title}`}
         />
       </Link>
-      <MovieInfo movie={props.movie} />
+      {props.children}
     </li>
   )
 }
@@ -28,5 +27,6 @@ export default MovieTile
 
 MovieTile.propTypes = {
   movie: PropTypes.object,
-  handleMovieSelect: PropTypes.func
+  handleMovieSelect: PropTypes.func,
+  children: PropTypes.object
 }

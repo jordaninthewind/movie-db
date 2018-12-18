@@ -1,5 +1,6 @@
 import React from 'react'
 import MovieTile from '../MovieTile/MovieTile'
+import MovieInfo from '../MovieInfo/MovieInfo'
 import './DisplayTiles.css'
 
 const DisplayTiles = props => {
@@ -16,12 +17,16 @@ const DisplayTiles = props => {
 
     return (
       <ul id="searchResults">
-        {sortedMovies.map(movie => (
+        {sortedMovies.map((movie, idx) => (
           <MovieTile
-            key={movie.id}
+            key={idx}
             movie={movie}
             handleMovieSelect={props.handleMovieSelect}
-          />
+          >
+            <MovieInfo 
+              movie={movie} 
+            />
+          </MovieTile>
         ))}
       </ul>
     )
