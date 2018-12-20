@@ -21,13 +21,9 @@ class SearchResults extends Component {
     this.props.sortAllMovies()
   }
 
-  makeUrl = () => {
-    return `${process.env.BASE_URL + this.props.input}&page=${this.props.currentPage + 1}`
-  }
-
   handleMoreMovies = () => {
     if (this.props.currentPage < this.props.totalPages) {
-      this.props.getMoreMovies(this.makeUrl())
+      this.props.getMoreMovies(this.props.input, this.props.currentPage)
     }
   }
 
@@ -90,8 +86,8 @@ const mapDispatchToProps = dispatch => {
     sortAllMovies: () => {
       dispatch(sortAllMovies())
     },
-    getMoreMovies: url => {
-      dispatch(getMoreMovies(url))
+    getMoreMovies: (searchTerm, page) => {
+      dispatch(getMoreMovies(searchTerm, page))
     }
   }
 }
