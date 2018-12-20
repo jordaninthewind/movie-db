@@ -4,10 +4,12 @@
   "description": "React.js Application for Mentoring Program Building Movie Presentation Site that Draws Data from external API",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "webpack-dev-server --open --mode development",
     "dev": "webpack --mode development",
     "build": "webpack --mode production",
-    "start": "webpack-dev-server --open --mode development"
+    "test": "jest",
+    "test:coverage": "jest --coverage",
+    "test:watch": "jest --watchAll"
   },
   "repository": {
     "type": "git",
@@ -46,6 +48,7 @@
     "clean-webpack-plugin": "^1.0.0",
     "css-loader": "^1.0.1",
     "dotenv-webpack": "^1.5.7",
+    "enzyme": "^3.8.0",
     "eslint": "^5.9.0",
     "eslint-config-airbnb": "^17.1.0",
     "eslint-loader": "^2.1.1",
