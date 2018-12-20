@@ -17,18 +17,12 @@ class ShowPage extends Component {
   }
 
   componentDidMount = () => {
-    const url =
-      process.env.MOVIE_URL + this.props.match.params.id + process.env.API_KEY
-    this.props.addCurrentMovieToState(url)
+    this.props.addCurrentMovieToState(this.props.match.params.id)
   };
 
   componentDidUpdate = prevProps => {
     if (prevProps.match.params.id !== this.props.match.params.id) {
-      const url =
-        process.env.MOVIE_URL +
-        this.props.match.params.id +
-        process.env.API_KEY
-      this.props.addCurrentMovieToState(url)
+      this.props.addCurrentMovieToState(this.props.match.params.id)
     }
   };
 
@@ -62,7 +56,7 @@ const mapStateToProps = state => {
 const mapDispatchToProps = dispatch => {
   return {
     removeCurrentFilmId: () => dispatch(removeCurrentFilmId()),
-    addCurrentMovieToState: url => dispatch(addCurrentMovieToState(url)),
+    addCurrentMovieToState: id => dispatch(addCurrentMovieToState(id)),
     removeCurrentMovieFromState: () => dispatch(removeCurrentMovieFromState())
   }
 }

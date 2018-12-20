@@ -29,7 +29,7 @@ export const getAllMovies = url => dispatch => {
   fetch(url)
     .then(res => res.json())
     .then(json => {
-      const movies = Object.assign({}, json)
+      const movies = Object.assign({}, json) // to be reconsidered
       setDate(movies.results)
       dispatch({ type: SET_ALL_MOVIES, movies: movies })
       dispatch(sortAllMovies())
@@ -43,7 +43,8 @@ const setDate = movies => {
   )
 }
 
-export const getMoreMovies = url => dispatch => {
+export const getMoreMovies = (searchTerm, page) => dispatch => {
+  const url = `${process.env.BASE_URL + searchTerm}&page=${page + 1}`
   dispatch(setLoading())
   fetch(url)
     .then(res => res.json())
@@ -64,7 +65,8 @@ export const removeCurrentFilmId = () => {
   return { type: SELECTED_MOVIE_ID, selectedMovieId: null }
 }
 
-export const addCurrentMovieToState = url => dispatch => {
+export const addCurrentMovieToState = id => dispatch => {
+  const url = process.env.MOVIE_URL + id + process.env.API_KEY
   fetch(url)
     .then(res => res.json())
     .then(json =>
