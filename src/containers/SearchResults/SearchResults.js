@@ -18,7 +18,7 @@ class SearchResults extends Component {
 
   handleSort = () => {
     this.props.toggleFilter(this.props.filter)
-    // this.props.sortAllMovies()
+    this.props.sortAllMovies()
   }
 
   handleMoreMovies = () => {
