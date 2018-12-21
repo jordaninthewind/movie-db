@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import { PropTypes } from 'prop-types' 
+import { PropTypes } from 'prop-types'
 import {
   removeCurrentFilmId,
   addCurrentMovieToState,
@@ -18,26 +18,35 @@ class ShowPage extends Component {
 
   componentDidMount = () => {
     this.props.addCurrentMovieToState(this.props.match.params.id)
-  };
+  }
 
   componentDidUpdate = prevProps => {
     if (prevProps.match.params.id !== this.props.match.params.id) {
       this.props.addCurrentMovieToState(this.props.match.params.id)
     }
-  };
+  }
 
   componentWillUnmount = () => {
     this.props.removeCurrentFilmId()
     this.props.removeCurrentMovieFromState()
-  };
+  }
 
   render() {
     return (
       <div className="showPage">
         <Header input={this.props.input} history={this.props.history} />
         <div className="movieInfo">
-          <MovieImage movie={this.props.currentMovie} />
-          <ShowDetails movie={this.props.currentMovie} />
+          <MovieImage 
+            poster_path={this.props.currentMovie.poster_path} 
+          />
+          <ShowDetails
+            imdb_id={this.props.currentMovie.imdb_id}
+            title={this.props.currentMovie.title}
+            vote_average={this.props.currentMovie.vote_average}
+            release_date={this.props.currentMovie.release_date}
+            runtime={this.props.currentMovie.runtime}
+            overview={this.props.currentMovie.overview}
+          />
         </div>
       </div>
     )
