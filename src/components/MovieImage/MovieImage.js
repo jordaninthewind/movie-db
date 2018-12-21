@@ -2,13 +2,13 @@ import React from 'react'
 import { PropTypes } from 'prop-types'
 import './MovieImage.css'
 
-const MovieImage = props => {
+const MovieImage = ({ poster_path }) => {
   return (
     <div className="movieImage">
       <img
         src={
-          props.movie.poster_path !== null
-            ? process.env.PHOTO_URL + props.movie.poster_path
+          poster_path !== null
+            ? process.env.PHOTO_URL + poster_path
             : '../../../public/no-poster.png'
         }
       />
@@ -19,5 +19,5 @@ const MovieImage = props => {
 export default MovieImage
 
 MovieImage.propTypes = {
-  movie: PropTypes.object
+  poster_path: PropTypes.string,
 }
