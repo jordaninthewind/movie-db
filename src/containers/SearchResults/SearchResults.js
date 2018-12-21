@@ -98,16 +98,16 @@ export default connect(
 )(SearchResults)
 
 SearchResults.propTypes = {
-  selectMovie: PropTypes.func,
-  toggleFilter: PropTypes.func,
-  filter: PropTypes.bool,
-  sortAllMovies: PropTypes.func,
   input: PropTypes.string,
+  movies: PropTypes.array,
+  filter: PropTypes.bool,
+  loading: PropTypes.bool,
   currentPage: PropTypes.number,
   totalPages: PropTypes.number,
-  movies: PropTypes.array,
   selectedMovieId: PropTypes.number,
-  loading: PropTypes.bool,
-  getMoreMovies: PropTypes.func,
-  total: PropTypes.number
+  total: PropTypes.number,
+  selectMovie: PropTypes.func,
+  toggleFilter: PropTypes.func,
+  sortAllMovies: PropTypes.func,
+  getMoreMovies: PropTypes.func
 }
