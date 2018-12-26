@@ -6,7 +6,7 @@ import './MovieTile.css'
 const MovieTile = ({ movie, handleMovieSelect, children }) => {
   return (
     <li className="movieTile">
-      <Link to={`/film/${encodeURI(movie.title)}/${movie.id}`}>
+      <Link to={`/film/${movie.id}`}>
         <img
           key={movie.id}
           src={

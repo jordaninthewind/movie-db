@@ -12,10 +12,10 @@ const App = () => {
       <Switch>
         <Route exact path="/" render={() => <Redirect to="/search" />} />
         <Route path="/search/:name?" component={SearchPage} />
-        <Route path="/film/:name/:id" component={ShowPage} />
+        <Route path="/film/:id" component={ShowPage} />
         <Route component={Lost} />
       </Switch>
-      <Route path="/(search|film)/:query?/:number?" component={SearchResults} />
+      <Route path="/(search|film)/:query?/" component={SearchResults} />
       <Footer />
     </>
   )
