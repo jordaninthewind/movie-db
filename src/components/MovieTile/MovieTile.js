@@ -18,7 +18,7 @@ const MovieTile = ({ movie, handleMovieSelect, children }) => {
           alt={`${movie.title}`}
         />
       </Link>
-      { children }
+      {children}
     </li>
   )
 }
