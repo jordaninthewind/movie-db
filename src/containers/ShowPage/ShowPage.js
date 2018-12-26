@@ -36,13 +36,7 @@ class ShowPage extends Component {
       <div className="showPage">
         <Header input={this.props.input} history={this.props.history} />
         <div className="movieInfo">
-<<<<<<< HEAD
           <MovieImage poster_path={this.props.currentMovie.poster_path} />
-=======
-          <MovieImage 
-            poster_path={this.props.currentMovie.poster_path} 
-          />
->>>>>>> ed016037acdebe4bee4303db7c55154a68b9a392
           <ShowDetails
             imdb_id={this.props.currentMovie.imdb_id}
             title={this.props.currentMovie.title}

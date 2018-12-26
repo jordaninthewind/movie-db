@@ -8,7 +8,7 @@ import './style.css'
 import 'normalize.css'
 
 ReactDOM.render(
-  <Provider store={store} >
+  <Provider store={store}>
     <Router>
       <Route path="/" component={App} />
     </Router>
