@@ -2,24 +2,37 @@ import React from 'react'
 import { PropTypes } from 'prop-types'
 import './ShowDetails.css'
 
-const ShowDetails = props => {
+const ShowDetails = ({
+  imdb_id,
+  title,
+  vote_average,
+  release_date,
+  runtime,
+  overview
+}) => {
   return (
     <div className="showDetails">
       <div>
         <a
-          href={'http://www.imdb.com/title/' + props.movie.imdb_id}
-          target="_blank"
+          href={imdb_id ? 'http://www.imdb.com/title/' + imdb_id : '/'}
+          target={imdb_id ? '_blank' : ''}
           rel="noopener noreferrer"
         >
-          {props.movie.title}
+          {title}
         </a>
         <span id="rating">
-          {Number.parseFloat(props.movie.vote_average).toFixed(1)}
+          {vote_average === 10
+            ? vote_average
+            : parseFloat(vote_average).toFixed(1)}
         </span>
       </div>
-      <span>{new Date(props.movie.release_date).getFullYear()}</span>
-      <span>{props.movie.runtime} minutes</span>
-      <p>{props.movie.overview}</p>
+      <span>
+        {release_date
+          ? new Date(release_date).getFullYear()
+          : 'No Release Date'}
+      </span>
+      <span>{runtime} minutes</span>
+      <p>{overview}</p>
     </div>
   )
 }
@@ -27,5 +40,16 @@ const ShowDetails = props => {
 export default ShowDetails
 
 ShowDetails.propTypes = {
-  movie: PropTypes.object,
+  imdb_id: PropTypes.number,
+  title: PropTypes.string,
+  vote_average: PropTypes.number,
+  release_date: PropTypes.string,
+  runtime: PropTypes.number,
+  overview: PropTypes.string
+}
+
+ShowDetails.defaultProps = {
+  movie: {
+    release_date: '1000-10-10'
+  }
 }

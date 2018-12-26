@@ -3,16 +3,20 @@ import MovieTile from '../MovieTile/MovieTile'
 import MovieInfo from '../MovieInfo/MovieInfo'
 import './DisplayTiles.css'
 
-const DisplayTiles = props => {
-  if (props.loading) {
+const DisplayTiles = ({
+  loading,
+  movies,
+  selectedMovieId,
+  handleMovieSelect,
+  input
+}) => {
+  if (loading) {
     return <div id="resultsDisplay">Loading...</div>
-  } else if (props.movies.length !== 0) {
-    let sortedMovies = [...props.movies]
+  } else if (movies.length !== 0) {
+    let sortedMovies = [...movies]
 
-    if (props.selectedMovieId) {
-      sortedMovies = sortedMovies.filter(
-        movie => movie.id !== props.selectedMovieId
-      )
+    if (selectedMovieId) {
+      sortedMovies = sortedMovies.filter(movie => movie.id !== selectedMovieId)
     }
 
     return (
@@ -21,16 +25,14 @@ const DisplayTiles = props => {
           <MovieTile
             key={idx}
             movie={movie}
-            handleMovieSelect={props.handleMovieSelect}
+            handleMovieSelect={handleMovieSelect}
           >
-            <MovieInfo 
-              movie={movie} 
-            />
+            <MovieInfo title={movie.title} release_date={movie.release_date} />
           </MovieTile>
         ))}
       </ul>
     )
-  } else if (props.input && props.movies.length === 0 && !props.loading) {
+  } else if (input && movies.length === 0 && !loading) {
     return <div id="resultsDisplay">No films found</div>
   } else {
     return null
