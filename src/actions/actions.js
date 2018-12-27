@@ -82,5 +82,3 @@ export const removeCurrentMovieFromState = () => {
 export const toggleFilter = bool => {
   return { type: TOGGLE_FILTER, filter: !bool }
 }
-
-export const sum = (a,b) => a + b;

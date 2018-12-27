@@ -27,11 +27,7 @@ const DisplayTiles = ({
             movie={movie}
             handleMovieSelect={handleMovieSelect}
           >
-<<<<<<< Updated upstream
-            <MovieInfo title={movie.title} release_date={movie.release_date} />
-=======
-            <MovieInfo movie={movie} />
->>>>>>> Stashed changes
+            <MovieInfo release_date={movie.release_date} title={movie.title} />
           </MovieTile>
         ))}
       </ul>
