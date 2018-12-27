@@ -25,7 +25,8 @@ export const sortAllMovies = () => {
   return { type: SORT_MOVIES }
 }
 
-export const getAllMovies = url => dispatch => {
+export const getAllMovies = query => dispatch => {
+  const url = process.env.BASE_URL + encodeURI(query)
   fetch(url)
     .then(res => res.json())
     .then(json => {
