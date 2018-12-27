@@ -15,5 +15,5 @@ export default MovieInfo
 
 MovieInfo.propTypes = {
   title: PropTypes.string,
-  release_date: PropTypes.string
+  release_date: PropTypes.date
 }

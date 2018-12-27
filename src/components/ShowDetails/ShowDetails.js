@@ -40,7 +40,7 @@ const ShowDetails = ({
 export default ShowDetails
 
 ShowDetails.propTypes = {
-  imdb_id: PropTypes.number,
+  imdb_id: PropTypes.string,
   title: PropTypes.string,
   vote_average: PropTypes.number,
   release_date: PropTypes.string,

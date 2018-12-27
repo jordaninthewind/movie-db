@@ -10,7 +10,7 @@ class SearchPage extends Component {
     super(props)
 
     this.state = {
-      text: this.props.match.params.name
+      text: this.props.match.params.name || '',
     }
   }
 
@@ -30,7 +30,7 @@ class SearchPage extends Component {
     if (this.state.text !== this.props.input) {
       this.props.setSearchTerm(this.state.text)
       this.props.setLoading()
-      this.props.getMovies(process.env.BASE_URL + encodeURI(this.state.text))
+      this.props.getMovies(this.state.text)
     }
   }
 
@@ -76,8 +76,8 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
   return {
-    getMovies: url => {
-      dispatch(getAllMovies(url))
+    getMovies: query => {
+      dispatch(getAllMovies(query))
     },
     setSearchTerm: input => {
       dispatch(setSearchTerm(input))
