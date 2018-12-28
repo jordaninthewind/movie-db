@@ -1,6 +1,6 @@
-/* eslint-disable no-undef */
 import React from 'react'
 import ReactDOM from 'react-dom'
+import { describe, it, test, expect } from 'jest'
 import { BrowserRouter as Router } from 'react-router-dom'
 import { Provider } from 'react-redux'
 import { shallow } from 'enzyme'
@@ -19,7 +19,7 @@ describe('Actions', () => {
 })
 
 test('it renders shallow', () => {
-  const footer = shallow(<Footer />)
+  const footer = shallow(<Footer/>)
   expect(footer.text()).toEqual('netflixroulette')
 })
 

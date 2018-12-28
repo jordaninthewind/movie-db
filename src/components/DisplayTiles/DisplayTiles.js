@@ -27,7 +27,7 @@ const DisplayTiles = ({
             movie={movie}
             handleMovieSelect={handleMovieSelect}
           >
-            <MovieInfo release_date={movie.release_date} title={movie.title} />
+            <MovieInfo releaseDate={movie.release_date} title={movie.title} />
           </MovieTile>
         ))}
       </ul>

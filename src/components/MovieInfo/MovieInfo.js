@@ -2,12 +2,12 @@ import React from 'react'
 import { PropTypes } from 'prop-types'
 import './MovieInfo.css'
 
-const MovieInfo = ({ title, release_date }) => {
+const MovieInfo = ({ title, releaseDate }) => {
   return (
     <div className="movieInfo">
-      <span className="tileTitle">{ title }</span>
+      <span className="tileTitle">{title}</span>
       <span className="tileYear">
-        { release_date ? release_date.getFullYear() : 'N/A' }
+        {releaseDate ? releaseDate.getFullYear() : 'N/A'}
       </span>
     </div>
   )
@@ -17,5 +17,5 @@ export default MovieInfo
 
 MovieInfo.propTypes = {
   title: PropTypes.string,
-  release_date: PropTypes.object
+  releaseDate: PropTypes.object
 }
