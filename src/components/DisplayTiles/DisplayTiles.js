@@ -10,9 +10,7 @@ const DisplayTiles = ({
   handleMovieSelect,
   input
 }) => {
-  if (loading) {
-    return <div id="resultsDisplay">Loading...</div>
-  } else if (movies.length !== 0) {
+  if (movies.length !== 0) {
     let sortedMovies = [...movies]
 
     if (selectedMovieId) {
@@ -20,17 +18,20 @@ const DisplayTiles = ({
     }
 
     return (
-      <ul id="searchResults">
-        {sortedMovies.map((movie, idx) => (
-          <MovieTile
-            key={idx}
-            movie={movie}
-            handleMovieSelect={handleMovieSelect}
-          >
-            <MovieInfo releaseDate={movie.release_date} title={movie.title} />
-          </MovieTile>
-        ))}
-      </ul>
+      <div>
+        <ul id="searchResults">
+          {sortedMovies.map((movie, idx) => (
+            <MovieTile
+              key={idx}
+              movie={movie}
+              handleMovieSelect={handleMovieSelect}
+            >
+              <MovieInfo title={movie.title} releaseDate={movie.release_date} />
+            </MovieTile>
+          ))}
+        </ul>
+        {loading && <div id="resultsDisplay">Loading...</div>}
+      </div>
     )
   } else if (input && movies.length === 0 && !loading) {
     return <div id="resultsDisplay">No films found</div>
