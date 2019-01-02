@@ -36,15 +36,21 @@ class ShowPage extends Component {
       <div className="showPage">
         <Header input={this.props.input} history={this.props.history} />
         <div className="movieInfo">
-          <MovieImage poster_path={this.props.currentMovie.poster_path} />
-          <ShowDetails
-            imdb_id={this.props.currentMovie.imdb_id}
-            title={this.props.currentMovie.title}
-            vote_average={this.props.currentMovie.vote_average}
-            release_date={this.props.currentMovie.release_date}
-            runtime={this.props.currentMovie.runtime}
-            overview={this.props.currentMovie.overview}
-          />
+          {!this.props.loading ? (
+            <>
+              <MovieImage poster_path={this.props.currentMovie.poster_path} />
+              <ShowDetails
+                imdb_id={this.props.currentMovie.imdb_id}
+                title={this.props.currentMovie.title}
+                vote_average={this.props.currentMovie.vote_average}
+                release_date={this.props.currentMovie.release_date}
+                runtime={this.props.currentMovie.runtime}
+                overview={this.props.currentMovie.overview}
+              />
+            </>
+          ) : (
+            <div>Loading</div>
+          )}
         </div>
       </div>
     )
@@ -56,7 +62,8 @@ const mapStateToProps = state => {
     input: state.moviesReducer.input,
     movies: state.moviesReducer.movies,
     id: state.moviesReducer.selectedMovieId,
-    currentMovie: state.moviesReducer.selectedMovie
+    currentMovie: state.moviesReducer.selectedMovie,
+    loading: state.moviesReducer.loading
   }
 }
 
@@ -80,5 +87,6 @@ ShowPage.propTypes = {
   removeCurrentMovieFromState: PropTypes.func,
   history: PropTypes.object,
   currentMovie: PropTypes.object,
-  input: PropTypes.string
+  input: PropTypes.string,
+  loading: PropTypes.bool
 }

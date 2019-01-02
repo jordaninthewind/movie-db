@@ -4,7 +4,7 @@
   "description": "React.js Application for Mentoring Program Building Movie Presentation Site that Draws Data from external API",
   "main": "index.js",
   "scripts": {
-    "start": "webpack-dev-server --open --mode development",
+    "start": "webpack-dev-server --mode development",
     "dev": "webpack --mode development",
     "build": "webpack --mode production",
     "test": "jest",

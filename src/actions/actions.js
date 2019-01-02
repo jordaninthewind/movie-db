@@ -8,7 +8,6 @@ const CURRENT_SELECTED_MOVIE = 'CURRENT_SELECTED_MOVIE'
 const TOGGLE_FILTER = 'TOGGLE_FILTER'
 const SORT_MOVIES = 'SORT_MOVIES'
 
-
 export const setSearchTerm = searchTerm => {
   return { type: SET_SEARCH_TERM, input: searchTerm }
 }
@@ -67,12 +66,15 @@ export const removeCurrentFilmId = () => {
 }
 
 export const addCurrentMovieToState = id => dispatch => {
+  dispatch(setLoading())
+
   const url = process.env.MOVIE_URL + id + process.env.API_KEY
   fetch(url)
     .then(res => res.json())
-    .then(json =>
+    .then(json => {
       dispatch({ type: CURRENT_SELECTED_MOVIE, selectedMovie: json })
-    )
+      dispatch(stopLoading())
+    })
 }
 
 export const removeCurrentMovieFromState = () => {
