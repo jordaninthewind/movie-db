@@ -1,6 +1,4 @@
 import React from 'react'
-import ReactDOM from 'react-dom'
-import { describe, it, test, expect } from 'jest'
 import { BrowserRouter as Router } from 'react-router-dom'
 import { Provider } from 'react-redux'
 import { shallow } from 'enzyme'
@@ -9,7 +7,7 @@ import App from '../containers/App'
 import Footer from '../components/Footer/Footer'
 import { removeCurrentMovieFromState } from '../actions/actions'
 
-describe('Actions', () => {
+describe('Reducer Actions', () => {
   it('returns an object', () => {
     expect(removeCurrentMovieFromState()).toEqual({
       selectedMovie: {},
@@ -18,20 +16,23 @@ describe('Actions', () => {
   })
 })
 
-test('it renders shallow', () => {
-  const footer = shallow(<Footer/>)
-  expect(footer.text()).toEqual('netflixroulette')
-})
+describe('API Handling', () => {})
 
-test('renders without crashing', () => {
-  const div = document.createElement('div')
-  ReactDOM.render(
-    <Provider store={store}>
-      <Router>
-        <App />
-      </Router>
-    </Provider>,
-    div
-  )
-  ReactDOM.unmountComponentAtNode(div)
+describe('Component Rendering', () => {
+  test('it renders shallow', () => {
+    const footer = shallow(<Footer />)
+    expect(footer.text()).toEqual('netflixroulette')
+  })
+
+  test('renders without crashing', () => {
+    const app = shallow(
+      <Provider store={store}>
+        <Router>
+          <App />
+        </Router>
+      </Provider>
+    )
+
+    expect.anything()
+  })
 })

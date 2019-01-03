@@ -4,5 +4,5 @@ module.exports = {
       '<rootDir>/__mocks__/fileMock.js',
     '\\.(css|less|scss|sass)$': 'identity-obj-proxy'
   },
-  setupTestFrameworkScriptFile: '<rootDir>src/__tests__/setupTests.js'
+  setupTestFrameworkScriptFile: '<rootDir>src/tests/setupTests.js'
 }
