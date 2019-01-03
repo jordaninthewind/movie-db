@@ -49,7 +49,7 @@ class ShowPage extends Component {
               />
             </>
           ) : (
-            <div>Loading</div>
+            null
           )}
         </div>
       </div>
