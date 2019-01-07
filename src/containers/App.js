@@ -6,7 +6,7 @@ import ShowPage from './ShowPage/ShowPage'
 import Footer from '../components/Footer/Footer'
 import Lost from '../components/Lost'
 
-const App = () => {
+export const App = () => {
   return (
     <>
       <Switch>

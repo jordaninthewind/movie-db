@@ -1,38 +1,82 @@
 import React from 'react'
-import { BrowserRouter as Router } from 'react-router-dom'
+import ReactDOM from 'react-dom'
+import { shallow, mount } from 'enzyme'
 import { Provider } from 'react-redux'
-import { shallow } from 'enzyme'
+import { BrowserRouter as Router } from 'react-router-dom'
 import store from '../store'
-import App from '../containers/App'
+import { App } from '../containers/App'
+import { SearchPage } from '../containers/SearchPage/SearchPage'
+import MovieInfo from '../components/MovieInfo/MovieInfo'
 import Footer from '../components/Footer/Footer'
-import { removeCurrentMovieFromState } from '../actions/actions'
+import * as actions from '../actions/actions'
 
-describe('Reducer Actions', () => {
+// Actions & Async Action Creators - test return values are correct
+
+describe('Action Creators', () => {
   it('returns an object', () => {
-    expect(removeCurrentMovieFromState()).toEqual({
+    expect(actions.removeCurrentMovieFromState()).toEqual({
       selectedMovie: {},
       type: 'CURRENT_SELECTED_MOVIE'
     })
   })
+
+  it('should create an action with id', () => {
+    const id = 12
+    const action = {
+      type: 'SELECTED_MOVIE_ID',
+      selectedMovieId: id
+    }
+
+    expect(actions.handleMovieSelect(id)).toEqual(action)
+  })
 })
 
-describe('API Handling', () => {})
+// Components
 
-describe('Component Rendering', () => {
-  test('it renders shallow', () => {
+describe('Components Render', () => {
+  test('It renders footer text', () => {
     const footer = shallow(<Footer />)
+
     expect(footer.text()).toEqual('netflixroulette')
   })
 
-  test('renders without crashing', () => {
-    const app = shallow(
+  test('movieinfo title text and date', () => {
+    const date = new Date()
+    const name = 'Paul'
+    const movieinfo = shallow(<MovieInfo title={name} releaseDate={date} />)
+
+    expect(movieinfo.text()).toContain(name, date.getFullYear())
+  })
+
+  it('renders without crashing', () => {
+    const div = document.createElement('div')
+    ReactDOM.render(
       <Provider store={store}>
         <Router>
           <App />
         </Router>
-      </Provider>
+      </Provider>,
+      div
+    )
+    ReactDOM.unmountComponentAtNode(div)
+  })
+})
+
+// Forms - input
+
+describe('Input Forms', () => {
+  it('has an input that sets prop as value', () => {
+    const match = { params: { name: 'paul' } }
+    const searchPage = mount(
+      <SearchPage
+        match={match}
+        setSearchTerm={() => {}}
+        setLoading={() => {}}
+        getMovies={() => {}}
+      />
     )
 
-    expect.anything()
+    expect(searchPage.find('input')).toBeTruthy()
+    expect(searchPage.find('input').instance().value).toEqual('paul')
   })
 })

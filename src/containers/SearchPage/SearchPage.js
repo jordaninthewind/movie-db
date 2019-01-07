@@ -5,7 +5,7 @@ import Header from '../../components/Header/Header'
 import { getAllMovies, setSearchTerm, setLoading } from '../../actions/actions'
 import './SearchPage.css'
 
-class SearchPage extends Component {
+export class SearchPage extends Component {
   constructor(props) {
     super(props)
 
