@@ -79,4 +79,27 @@ describe('Input Forms', () => {
     expect(searchPage.find('input')).toBeTruthy()
     expect(searchPage.find('input').instance().value).toEqual('paul')
   })
+
+  it('calls onchange function when user types', () => {
+    const match = { params: { name: 'paul' } }
+    const searchPage = mount(
+      <SearchPage
+        match={match}
+        setSearchTerm={() => {}}
+        setLoading={() => {}}
+        getMovies={() => {}}
+      />
+    )
+
+    // const spyFunction = jest.spyOn(searchPage.instance(), 'handleInput')
+
+    const searchInput = searchPage.find('input')
+
+    searchInput.simulate('change', {target: {value: 'john'}})
+
+    searchPage.update()
+
+    // expect(spyFunction).toHaveBeenCalled()
+    expect(searchPage.state('text')).toBe('john')
+  })
 })
