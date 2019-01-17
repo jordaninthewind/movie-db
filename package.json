@@ -25,6 +25,11 @@
     "url": "https://github.com/jordaninthewind/React-App-Mentoring-Program/issues"
   },
   "homepage": "https://github.com/jordaninthewind/React-App-Mentoring-Program#readme",
+  "jest": {
+    "snapshotSerializers": [
+      "enzyme-to-json/serializer"
+    ]
+  },
   "dependencies": {
     "react": "^16.6.1",
     "react-dom": "^16.6.1",
@@ -48,10 +53,12 @@
     "css-loader": "^1.0.1",
     "dotenv-webpack": "^1.5.7",
     "enzyme": "^3.8.0",
+    "enzyme-to-json": "^3.3.5",
     "eslint": "^5.9.0",
     "eslint-config-airbnb": "^17.1.0",
     "eslint-loader": "^2.1.1",
     "eslint-plugin-import": "^2.14.0",
+    "eslint-plugin-jest": "^22.1.2",
     "eslint-plugin-jsx-a11y": "^6.1.2",
     "eslint-plugin-react": "^7.11.1",
     "extract-text-webpack-plugin": "^4.0.0-beta.0",
