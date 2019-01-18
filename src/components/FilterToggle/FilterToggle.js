@@ -4,7 +4,7 @@ import './FilterToggle.css'
 
 const FilterToggle = ({ filter, toggleFilter }) => {
   return (
-    <div id="filterToggle">
+    <div styleName="filterToggle">
       <div onClick={ () => toggleFilter() }>
         Sort by{' '}
         <span className={ (filter ? null : 'active') }>

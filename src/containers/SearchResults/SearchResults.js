@@ -5,7 +5,6 @@ import { throttle } from 'lodash'
 import DisplayTiles from '../../components/DisplayTiles/DisplayTiles'
 import ResultsFilter from '../../components/ResultsFilter/ResultsFilter'
 import { handleMovieSelect, toggleFilter, sortAllMovies, getMoreMovies } from '../../actions/actions'
-import './SearchResults.css'
 
 class SearchResults extends Component {
   constructor(props) {

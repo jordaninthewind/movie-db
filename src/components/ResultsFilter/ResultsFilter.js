@@ -11,18 +11,18 @@ const ResultsFilter = ({
 }) => {
   if (selectedMovieId) {
     return (
-      <div id="resultsFilter">
-        <div id="movieCount">
+      <div styleName="resultsFilter">
+        <div styleName="movieCount">
           Movies for <em>{input}</em>
         </div>
       </div>
     )
   } else {
     return (
-      <div id="resultsFilter">
+      <div styleName="resultsFilter">
         {total > 0 && (
           <>
-            <div id="movieCount">{total} movies found</div>
+            <div styleName="movieCount">{total} movies found</div>
             <FilterToggle toggleFilter={toggleFilter} filter={filter} />
           </>
         )}

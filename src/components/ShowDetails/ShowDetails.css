@@ -9,7 +9,7 @@
   padding: 5% 0 2% 0;
 }
 
-#rating {
+.rating {
   margin-left: 2%;
   color: lightyellow;
   font-size: 0.75em;

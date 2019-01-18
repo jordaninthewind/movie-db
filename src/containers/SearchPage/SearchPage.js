@@ -49,18 +49,18 @@ export class SearchPage extends Component {
 
   render() {
     return (
-      <div id="searchBar">
+      <div styleName="searchBar">
         <Header />
-        <div id="subTitle">FIND YOUR MOVIE</div>
+        <div styleName="subTitle">FIND YOUR MOVIE</div>
         <input
           type="text"
-          id="textInput"
+          styleName="textInput"
           onChange={this.handleInput}
           onKeyPress={this._handleKeyPress}
           value={this.state.text}
           placeholder="Type your search query here"
         />
-        <button id="searchButton" onClick={this.handleSearch}>
+        <button styleName="searchButton" onClick={this.handleSearch}>
           SEARCH
         </button>
       </div>

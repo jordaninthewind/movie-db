@@ -4,7 +4,7 @@ import './Header.css'
 
 const Header = ({ history, input }) => {
   return (
-    <div className="topTitle">
+    <div styleName="topTitle">
       <span>
         <a href="/">netflixroulette</a>
       </span>

@@ -11,7 +11,7 @@ const ShowDetails = ({
   overview
 }) => {
   return (
-    <div className="showDetails">
+    <div styleName="showDetails">
       <div>
         <a
           href={imdb_id ? 'http://www.imdb.com/title/' + imdb_id : '/'}
@@ -20,7 +20,7 @@ const ShowDetails = ({
         >
           {title}
         </a>
-        <span id="rating">
+        <span styleName="rating">
           {vote_average === 10
             ? vote_average
             : parseFloat(vote_average).toFixed(1)}

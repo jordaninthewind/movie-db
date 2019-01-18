@@ -5,7 +5,7 @@ import './MovieTile.css'
 
 const MovieTile = ({ movie, handleMovieSelect, children }) => {
   return (
-    <li className="movieTile">
+    <li styleName="movieTile">
       <Link to={`/film/${movie.id}`}>
         <img
           key={movie.id}

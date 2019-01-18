@@ -4,9 +4,9 @@ import './MovieInfo.css'
 
 const MovieInfo = ({ title, releaseDate }) => {
   return (
-    <div className="movieInfo">
-      <span className="tileTitle">{title}</span>
-      <span className="tileYear">
+    <div styleName="movieInfo">
+      <span styleName="tileTitle">{title}</span>
+      <span styleName="tileYear">
         {releaseDate ? releaseDate.getFullYear() : 'N/A'}
       </span>
     </div>

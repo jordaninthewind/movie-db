@@ -19,7 +19,7 @@ const DisplayTiles = ({
 
     return (
       <div>
-        <ul id="searchResults">
+        <ul styleName='searchResults'>
           {sortedMovies.map((movie, idx) => (
             <MovieTile
               key={idx}
@@ -30,11 +30,11 @@ const DisplayTiles = ({
             </MovieTile>
           ))}
         </ul>
-        {loading && <div id="resultsDisplay">Loading...</div>}
+        {loading && <div styleName='resultsDisplay'>Loading...</div>}
       </div>
     )
   } else if (input && movies.length === 0 && !loading) {
-    return <div id="resultsDisplay">No films found</div>
+    return <div styleName='resultsDisplay'>No films found</div>
   } else {
     return null
   }
