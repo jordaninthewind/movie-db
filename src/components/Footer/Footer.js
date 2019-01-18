@@ -3,7 +3,7 @@ import './Footer.css'
 
 const Footer = () => {
   return (
-    <div id="footer">
+    <div styleName="footer">
       <div>netflixroulette</div>
     </div>
   )

@@ -33,9 +33,9 @@ class ShowPage extends Component {
 
   render() {
     return (
-      <div className="showPage">
+      <div styleName="showPage">
         <Header input={this.props.input} history={this.props.history} />
-        <div className="movieInfo">
+        <div>
           {!this.props.loading ? (
             <>
               <MovieImage poster_path={this.props.currentMovie.poster_path} />

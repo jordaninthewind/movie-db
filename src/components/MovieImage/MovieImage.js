@@ -4,7 +4,7 @@ import './MovieImage.css'
 
 const MovieImage = ({ poster_path }) => {
   return (
-    <div className="movieImage">
+    <div styleName="movieImage">
       <img
         src={
           poster_path !== null

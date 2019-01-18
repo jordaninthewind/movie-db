@@ -1,14 +1,14 @@
-html { 
+:global(html) { 
     font-size: 18px;
     font-family: Roboto, sans-serif;
 }
 
-body {
+:global(body) {
     background-color: white;
     text-align: center;
 }
 
-#root {
+:global(#root) {
     --background-color: #414141;
     --accent-font-color: #f55263;
 }

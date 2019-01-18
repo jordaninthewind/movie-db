@@ -1,4 +1,4 @@
-#searchBar {
+.searchBar {
     height: 310px;
     background-color: var(--background-color);
     border-bottom: 2px solid black;
@@ -10,12 +10,12 @@
     padding: 0 10% 0;
 }
 
-#subTitle {
+.subTitle {
     font-weight: 900;
     margin: 40px 0 30px 0;
 }
 
-#textInput {
+.textInput {
     width: 97%;
     height: 50px;
     padding-left: 3%;
@@ -26,11 +26,11 @@
     border-bottom: 2px solid var(--accent-font-color);
 }
 
-#textInput:focus {
+.textInput:focus {
     outline: none;
 }
 
-#searchButton {
+.searchButton {
     float: right;
     width: 15%;
     min-width: 200px;
