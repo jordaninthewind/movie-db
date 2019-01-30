@@ -9,13 +9,13 @@
   padding: 5% 0 2% 0;
 }
 
-#rating {
-  margin-left: 6%;
+.rating {
+  margin-left: 2%;
   color: lightyellow;
-  font-size: 0.7em;
-  font-weight: 10;
-  padding: 25px;
-  border: 0.6px solid lightyellow;
+  font-size: 0.75em;
+  font-weight: lighter;
+  padding: 15px;
+  border: 1px solid rgb(195,213,176);
   border-radius: 100%;
 }
 
@@ -32,4 +32,5 @@
 .showDetails a {
   text-decoration: none;
   color: var(--accent-font-color);
+  max-width: 50%;
 }

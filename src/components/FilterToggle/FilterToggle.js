@@ -2,15 +2,15 @@ import React from 'react'
 import { PropTypes } from 'prop-types'
 import './FilterToggle.css'
 
-const FilterToggle = props => {
+const FilterToggle = ({ filter, toggleFilter }) => {
   return (
-    <div id="filterToggle">
-      <div onClick={() => props.toggleFilter()}>
+    <div styleName="filterToggle">
+      <div onClick={ () => toggleFilter() }>
         Sort by{' '}
-        <span className={(props.filter ? null : 'active')}>
+        <span className={ (filter ? null : 'active') }>
           release date
         </span>
-        <span className={(props.filter ? 'active' : null)}>
+        <span className={ (filter ? 'active' : null) }>
           rating
         </span>
       </div>

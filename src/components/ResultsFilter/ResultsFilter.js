@@ -2,25 +2,28 @@ import React from 'react'
 import FilterToggle from '../FilterToggle/FilterToggle'
 import './ResultsFilter.css'
 
-const ResultsFilter = props => {
-  if (props.selectedMovieId) {
+const ResultsFilter = ({
+  selectedMovieId,
+  total,
+  input,
+  toggleFilter,
+  filter
+}) => {
+  if (selectedMovieId) {
     return (
-      <div id="resultsFilter">
-        <div id="movieCount">
-          Movies for <em>{props.input}</em>
+      <div styleName="resultsFilter">
+        <div styleName="movieCount">
+          Movies for <em>{input}</em>
         </div>
       </div>
     )
   } else {
     return (
-      <div id="resultsFilter">
-        {props.total > 0 && (
+      <div styleName="resultsFilter">
+        {total > 0 && (
           <>
-            <div id="movieCount">{props.total} movies found</div>
-            <FilterToggle
-              toggleFilter={props.toggleFilter}
-              filter={props.filter}
-            />
+            <div styleName="movieCount">{total} movies found</div>
+            <FilterToggle toggleFilter={toggleFilter} filter={filter} />
           </>
         )}
       </div>

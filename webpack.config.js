@@ -1,4 +1,5 @@
 const webpack = require('webpack')
+
 const path = require('path')
 const Dotenv = require('dotenv-webpack')
 
@@ -10,8 +11,8 @@ const BUILD_DIR = path.join(__dirname, 'dist')
 const APP_DIR = path.join(__dirname, 'src')
 
 module.exports = {
-  entry: { 
-    bundle: APP_DIR + '/index.js',
+  entry: {
+    bundle: APP_DIR + '/index.js'
   },
   output: {
     path: BUILD_DIR,
@@ -19,10 +20,10 @@ module.exports = {
     publicPath: '/'
   },
   devServer: {
-    historyApiFallback: true,
+    historyApiFallback: true
   },
   module: {
-    rules: [   
+    rules: [
       {
         test: /\.jsx?$/,
         exclude: /node_modules/,
@@ -30,12 +31,17 @@ module.exports = {
       },
       {
         test: /\.css$/,
-        use: ExtractTextPlugin.extract(
+        use: [
+          'style-loader',
           {
-            fallback: 'style-loader',
-            use: 'css-loader'
+            loader: 'css-loader',
+            options: {
+              importLoaders: 1,
+              modules: true,
+              localIdentName: '[path]___[name]__[local]___[hash:base64:5]'
+            }
           }
-        )
+        ]
       },
       {
         test: /\.(gif|png|jpe?g|svg)$/i,
@@ -45,22 +51,20 @@ module.exports = {
             loader: 'image-webpack-loader',
             options: {
               disable: true
-            },
-          },
-        ],
+            }
+          }
+        ]
       }
     ]
   },
   plugins: [
-    new HtmlWebpackPlugin(
-      {
-        template: './public/index.html',
-        hash: false,
-        inject: true,
-        filename: 'index.html'
-      }
-    ),
-    new ExtractTextPlugin({filename: './src/style.css'}),
+    new HtmlWebpackPlugin({
+      template: './public/index.html',
+      hash: false,
+      inject: true,
+      filename: 'index.html'
+    }),
+    new ExtractTextPlugin({ filename: './src/style.css' }),
     new CleanWebpackPlugin(['dist']),
     new Dotenv()
   ]

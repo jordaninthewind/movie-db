@@ -8,7 +8,6 @@ const CURRENT_SELECTED_MOVIE = 'CURRENT_SELECTED_MOVIE'
 const TOGGLE_FILTER = 'TOGGLE_FILTER'
 const SORT_MOVIES = 'SORT_MOVIES'
 
-
 export const setSearchTerm = searchTerm => {
   return { type: SET_SEARCH_TERM, input: searchTerm }
 }
@@ -25,11 +24,12 @@ export const sortAllMovies = () => {
   return { type: SORT_MOVIES }
 }
 
-export const getAllMovies = url => dispatch => {
+export const getAllMovies = query => dispatch => {
+  const url = process.env.BASE_URL + encodeURI(query)
   fetch(url)
     .then(res => res.json())
     .then(json => {
-      const movies = Object.assign({}, json)
+      const movies = Object.assign({}, json) // to be reconsidered
       setDate(movies.results)
       dispatch({ type: SET_ALL_MOVIES, movies: movies })
       dispatch(sortAllMovies())
@@ -43,7 +43,8 @@ const setDate = movies => {
   )
 }
 
-export const getMoreMovies = url => dispatch => {
+export const getMoreMovies = (searchTerm, page) => dispatch => {
+  const url = `${process.env.BASE_URL + searchTerm}&page=${page + 1}`
   dispatch(setLoading())
   fetch(url)
     .then(res => res.json())
@@ -64,12 +65,16 @@ export const removeCurrentFilmId = () => {
   return { type: SELECTED_MOVIE_ID, selectedMovieId: null }
 }
 
-export const addCurrentMovieToState = url => dispatch => {
+export const addCurrentMovieToState = id => dispatch => {
+  dispatch(setLoading())
+
+  const url = process.env.MOVIE_URL + id + process.env.API_KEY
   fetch(url)
     .then(res => res.json())
-    .then(json =>
+    .then(json => {
       dispatch({ type: CURRENT_SELECTED_MOVIE, selectedMovie: json })
-    )
+      dispatch(stopLoading())
+    })
 }
 
 export const removeCurrentMovieFromState = () => {

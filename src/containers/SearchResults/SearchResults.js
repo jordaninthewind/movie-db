@@ -2,10 +2,9 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { PropTypes } from 'prop-types'
 import { throttle } from 'lodash'
-import { handleMovieSelect, toggleFilter, sortAllMovies, getMoreMovies } from '../../actions/actions'
 import DisplayTiles from '../../components/DisplayTiles/DisplayTiles'
 import ResultsFilter from '../../components/ResultsFilter/ResultsFilter'
-import './SearchResults.css'
+import { handleMovieSelect, toggleFilter, sortAllMovies, getMoreMovies } from '../../actions/actions'
 
 class SearchResults extends Component {
   constructor(props) {
@@ -21,13 +20,9 @@ class SearchResults extends Component {
     this.props.sortAllMovies()
   }
 
-  makeUrl = () => {
-    return `${process.env.BASE_URL + this.props.input}&page=${this.props.currentPage + 1}`
-  }
-
   handleMoreMovies = () => {
     if (this.props.currentPage < this.props.totalPages) {
-      this.props.getMoreMovies(this.makeUrl())
+      this.props.getMoreMovies(this.props.input, this.props.currentPage)
     }
   }
 
@@ -90,8 +85,8 @@ const mapDispatchToProps = dispatch => {
     sortAllMovies: () => {
       dispatch(sortAllMovies())
     },
-    getMoreMovies: url => {
-      dispatch(getMoreMovies(url))
+    getMoreMovies: (searchTerm, page) => {
+      dispatch(getMoreMovies(searchTerm, page))
     }
   }
 }
@@ -102,16 +97,16 @@ export default connect(
 )(SearchResults)
 
 SearchResults.propTypes = {
-  selectMovie: PropTypes.func,
-  toggleFilter: PropTypes.func,
-  filter: PropTypes.bool,
-  sortAllMovies: PropTypes.func,
   input: PropTypes.string,
+  movies: PropTypes.array,
+  filter: PropTypes.bool,
+  loading: PropTypes.bool,
   currentPage: PropTypes.number,
   totalPages: PropTypes.number,
-  movies: PropTypes.array,
   selectedMovieId: PropTypes.number,
-  loading: PropTypes.bool,
-  getMoreMovies: PropTypes.func,
-  total: PropTypes.number
+  total: PropTypes.number,
+  selectMovie: PropTypes.func,
+  toggleFilter: PropTypes.func,
+  sortAllMovies: PropTypes.func,
+  getMoreMovies: PropTypes.func
 }
